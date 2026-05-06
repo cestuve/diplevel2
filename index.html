@@ -1,0 +1,2571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maya and Alex Course</title>
+<style>
+  html, body {
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#061f43;
+  }
+  .course-frame {
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+    display:none;
+    background:#061f43;
+  }
+  .course-frame.active {
+    display:block;
+  }
+</style>
+</head>
+<body>
+<iframe id="introFrame" class="course-frame active" title="Course Introduction" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+&lt;title&gt;Prediabetes, Delay, and Prevention — Course Introduction&lt;/title&gt;
+&lt;style&gt;
+:root{
+  --navy:#061f43;
+  --blue:#1478c8;
+  --sky:#bfe9ff;
+  --teal:#078a90;
+  --red:#c71f37;
+  --orange:#f97316;
+  --gold:#f6c343;
+  --purple:#6654d9;
+  --ink:#172033;
+  --cream:rgba(255,255,255,.92);
+  --dark-panel:rgba(3,12,30,.78);
+  --soft-border:rgba(246,195,67,.28);
+  --shadow:0 22px 58px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Arial,sans-serif;
+  background:#061f43;
+  color:#fff;
+}
+#course-intro{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  overflow:hidden;
+  background:#061f43;
+}
+.intro-bg{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(199,31,55,.34) 0 10%,transparent 31%),
+    radial-gradient(circle at 85% 18%,rgba(102,84,217,.32) 0 11%,transparent 31%),
+    radial-gradient(circle at 68% 80%,rgba(246,195,67,.22) 0 13%,transparent 36%),
+    radial-gradient(circle at 22% 78%,rgba(7,138,144,.28) 0 11%,transparent 34%),
+    linear-gradient(180deg,rgba(3,12,30,.08),rgba(3,12,30,.82)),
+    linear-gradient(135deg,#24122e 0%,#102d5b 46%,#05142a 100%);
+  filter:contrast(1.03) brightness(.95);
+}
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:.48;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),
+    radial-gradient(1.6px 1.6px at 8% 18%, rgba(255,255,255,.70) 50%, transparent 52%),
+    radial-gradient(1.7px 1.7px at 31% 14%, rgba(246,195,67,.70) 50%, transparent 52%),
+    radial-gradient(1.4px 1.4px at 76% 30%, rgba(255,255,255,.72) 50%, transparent 52%);
+  background-size:46px 46px,46px 46px,100% 100%,100% 100%,100% 100%;
+  animation:twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes twinkle{
+  from{opacity:.32;transform:translateY(0)}
+  to{opacity:.62;transform:translateY(-2px)}
+}
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:60;
+  height:6px;
+  width:0;
+  background:linear-gradient(90deg,var(--red),var(--purple),var(--gold),var(--teal));
+  box-shadow:0 0 18px rgba(246,195,67,.48);
+}
+.learning-hud{
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:80;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  border-radius:999px;
+  background:rgba(3,12,30,.72);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 34px rgba(0,0,0,.28);
+  backdrop-filter:blur(12px);
+}
+.hud-item{
+  min-width:74px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+  text-align:center;
+}
+.hud-item.wide{
+  min-width:210px;
+  text-align:left;
+}
+.hud-label{
+  display:block;
+  font-size:10px;
+  line-height:1;
+  opacity:.78;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:4px;
+}
+.hud-track{
+  width:100%;
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  overflow:hidden;
+}
+.hud-fill{
+  width:0%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--red),var(--purple),var(--gold),var(--teal));
+  transition:width .35s ease;
+}
+.scene{
+  position:relative;
+  z-index:10;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:74px 24px;
+}
+.panel{
+  width:100%;
+  max-width:920px;
+  padding:42px 38px;
+  border-radius:28px;
+  background:var(--dark-panel);
+  border:1px solid var(--soft-border);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+  text-align:center;
+}
+.panel.wide{max-width:1080px}
+.panel.light{
+  background:var(--cream);
+  color:var(--ink);
+  border-color:rgba(20,120,200,.24);
+}
+.eyebrow{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:8px 15px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.09);
+  color:var(--sky);
+}
+.panel.light .eyebrow{
+  border-color:rgba(6,31,67,.14);
+  background:rgba(20,120,200,.10);
+  color:var(--navy);
+}
+h1,h2,h3{
+  font-family:&quot;Aptos Display&quot;,&quot;Segoe UI Variable Display&quot;,&quot;Segoe UI&quot;,Inter,system-ui,sans-serif;
+  line-height:1.05;
+  margin:0 0 18px;
+  letter-spacing:-.025em;
+}
+h1{
+  font-size:clamp(2.7rem,5.6vw,5rem);
+  text-shadow:0 8px 26px rgba(0,0,0,.42);
+}
+h2{font-size:clamp(1.9rem,3.4vw,3rem)}
+h3{font-size:1.32rem;color:var(--gold)}
+p{
+  font-size:clamp(1.05rem,1.7vw,1.22rem);
+  line-height:1.72;
+  margin:0 auto 18px;
+  max-width:760px;
+}
+.large-line{
+  font-size:clamp(1.65rem,3.3vw,2.75rem);
+  line-height:1.25;
+  margin:10px auto;
+  max-width:820px;
+  font-weight:850;
+}
+.gold{color:var(--gold)}
+.red{color:#ff8ea1}
+.sky{color:var(--sky)}
+.teal{color:#5eead4}
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .85s ease,transform .85s ease;
+}
+.scene.in-view .reveal{
+  opacity:1;
+  transform:translateY(0);
+}
+.delay-1{transition-delay:.16s}
+.delay-2{transition-delay:.32s}
+.delay-3{transition-delay:.48s}
+.delay-4{transition-delay:.64s}
+.opening-stagger span{
+  display:block;
+  opacity:0;
+  transform:translateY(14px);
+  animation:sentenceFade .75s ease forwards;
+}
+.opening-stagger span:nth-child(1){animation-delay:.42s}
+.opening-stagger span:nth-child(2){animation-delay:.72s}
+.opening-stagger span:nth-child(3){animation-delay:1.02s}
+@keyframes sentenceFade{to{opacity:1;transform:translateY(0)}}
+.scroll-cue{
+  margin-top:28px;
+  font-size:.92rem;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.78);
+}
+.scroll-cue::after{
+  content:&quot;&quot;;
+  display:block;
+  width:22px;
+  height:22px;
+  margin:12px auto 0;
+  border-right:2px solid rgba(255,255,255,.72);
+  border-bottom:2px solid rgba(255,255,255,.72);
+  transform:rotate(45deg);
+  animation:bounceArrow 1.4s ease-in-out infinite;
+}
+@keyframes bounceArrow{
+  0%,100%{transform:translateY(0) rotate(45deg);opacity:.55}
+  50%{transform:translateY(8px) rotate(45deg);opacity:1}
+}
+.character-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+  margin:30px auto 0;
+  max-width:980px;
+}
+.character-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:26px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 16px 38px rgba(0,0,0,.20);
+  padding:22px;
+  text-align:left;
+}
+.panel.light .character-card{
+  background:#fff;
+  border-color:rgba(20,120,200,.16);
+}
+.character-card:before{
+  content:&quot;&quot;;
+  position:absolute;
+  right:-70px;
+  bottom:-90px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  opacity:.14;
+}
+.character-card.maya:before{background:var(--teal)}
+.character-card.alex:before{background:var(--red)}
+.character-photo{
+  width:130px;
+  height:130px;
+  border-radius:26px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  margin-bottom:16px;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+  background:#fff;
+}
+.character-card h3{
+  color:var(--navy);
+  font-size:1.75rem;
+  margin-bottom:6px;
+}
+.dark-card h3{color:#fff}
+.character-tag{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.character-tag.maya{background:#e6fffb;color:#0f766e}
+.character-tag.alex{background:#fff1f2;color:#9f1239}
+.character-card p{
+  margin-left:0;
+  margin-right:0;
+  max-width:none;
+  font-size:1.02rem;
+  line-height:1.55;
+}
+.story-list{
+  margin:14px 0 0;
+  padding-left:20px;
+  line-height:1.6;
+}
+.story-list li{margin-bottom:8px}
+.instruction-grid,.badge-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:28px auto 0;
+  max-width:920px;
+  text-align:left;
+}
+.instruction-card,.badge-card{
+  border-radius:20px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+.panel.light .instruction-card,
+.panel.light .badge-card{
+  background:#fff;
+  border-color:rgba(20,120,200,.16);
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+.instruction-card h3,.badge-card h3{
+  color:var(--navy);
+  margin-bottom:8px;
+  font-size:1.15rem;
+}
+.instruction-card p,.badge-card p{
+  margin:0;
+  max-width:none;
+  font-size:.98rem;
+  line-height:1.45;
+}
+.badge-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.badge-icon{
+  flex:0 0 auto;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(246,195,67,.22);
+  font-size:24px;
+}
+.choose-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  margin:30px auto 0;
+  max-width:900px;
+}
+.path-button{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:220px;
+  text-decoration:none;
+  color:inherit;
+  border-radius:26px;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 16px 36px rgba(0,0,0,.20);
+  transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  text-align:left;
+}
+.path-button:hover,.path-button:focus{
+  transform:translateY(-4px);
+  border-color:rgba(246,195,67,.65);
+  background:rgba(255,255,255,.12);
+  outline:none;
+}
+.path-button h3{
+  color:#fff;
+  font-size:1.8rem;
+}
+.path-button p{
+  margin:0;
+  max-width:none;
+  font-size:1rem;
+  line-height:1.45;
+}
+.path-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:max-content;
+  margin-top:20px;
+  padding:12px 16px;
+  border-radius:999px;
+  background:var(--orange);
+  color:#fff;
+  font-weight:900;
+}
+.path-button.maya .path-cta{background:var(--teal)}
+.path-button.alex .path-cta{background:var(--red)}
+.note{
+  margin-top:22px;
+  font-size:.95rem;
+  color:rgba(255,255,255,.76);
+}
+
+.clean-list{
+  display:inline-block;
+  text-align:left;
+  margin:28px auto 0;
+  padding-left:28px;
+  font-size:clamp(1.15rem,1.9vw,1.35rem);
+  line-height:1.9;
+  font-weight:800;
+}
+.white-panel,
+.white-panel h2,
+.white-panel h3,
+.white-panel p,
+.white-panel .instruction-card h3,
+.white-panel .instruction-card p{
+  color:#fff!important;
+}
+.white-panel .instruction-card{
+  background:rgba(255,255,255,.08)!important;
+  border-color:rgba(255,255,255,.16)!important;
+}
+
+
+.horizontal-card{
+  display:grid;
+  grid-template-columns:150px minmax(0,1fr);
+  gap:20px;
+  align-items:center;
+}
+.horizontal-card .character-photo{
+  width:150px;
+  height:150px;
+  margin:0;
+}
+.horizontal-card .character-copy{
+  position:relative;
+  z-index:2;
+}
+.no-bullets{
+  list-style:none;
+  padding-left:0;
+  text-align:center;
+  display:grid;
+  gap:12px;
+}
+.no-bullets div{
+  padding:14px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.15);
+}
+.panel.light .no-bullets div{
+  background:#fff;
+  border-color:rgba(20,120,200,.16);
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+@media(max-width:820px){
+  .horizontal-card{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .horizontal-card .character-photo{
+    margin:0 auto 12px;
+  }
+}
+
+@media(max-width:820px){
+  .scene{padding:86px 16px 64px}
+  .panel{padding:32px 22px}
+  .character-grid,.instruction-grid,.badge-grid,.choose-grid{
+    grid-template-columns:1fr;
+  }
+  h1{font-size:2.7rem}
+  .learning-hud{
+    left:10px;
+    right:10px;
+    top:10px;
+    border-radius:22px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .hud-item.wide{min-width:190px}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;course-intro&quot; aria-label=&quot;Prediabetes, Delay, and Prevention course introduction&quot;&gt;
+  &lt;div class=&quot;scroll-progress&quot; id=&quot;introProgress&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;learning-hud&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;div class=&quot;hud-item wide&quot;&gt;
+      &lt;span class=&quot;hud-label&quot;&gt;Progress&lt;/span&gt;
+      &lt;div class=&quot;hud-track&quot;&gt;&lt;div id=&quot;hudProgress&quot; class=&quot;hud-fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;hud-item&quot;&gt;
+      &lt;span class=&quot;hud-label&quot;&gt;Badges&lt;/span&gt;
+      &lt;strong&gt;0&lt;/strong&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;intro-bg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;grid&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;p class=&quot;large-line opening-stagger&quot;&gt;
+        &lt;span&gt;Maya and Alex both feel fine.&lt;/span&gt;
+        &lt;span&gt;That is what makes this moment matter.&lt;/span&gt;
+        
+      &lt;/p&gt;
+      &lt;div class=&quot;scroll-cue reveal delay-4&quot;&gt;Scroll to begin&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Two stories&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Two people. Two pathways. One window to act.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Maya is trying to make sense of unexpected lab results. Alex is trying not to worry about a family history he cannot ignore. In both stories, diabetes is not yet obvious, but the window to act is open.&lt;/p&gt;
+      &lt;div class=&quot;character-grid reveal delay-3&quot;&gt;
+        &lt;div class=&quot;character-card maya dark-card horizontal-card&quot;&gt;
+          &lt;img class=&quot;character-photo&quot; src=&quot;https://cestuve.github.io/DIP/maya2.png&quot; alt=&quot;Maya&quot;&gt;
+          &lt;div class=&quot;character-copy&quot;&gt;
+            &lt;span class=&quot;character-tag maya&quot;&gt;Type 2 Diabetes Prevention Pathway&lt;/span&gt;
+            &lt;h3&gt;Maya&lt;/h3&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;character-card alex dark-card horizontal-card&quot;&gt;
+          &lt;img class=&quot;character-photo&quot; src=&quot;https://cestuve.github.io/DIP/alex.png&quot; alt=&quot;Alex&quot;&gt;
+          &lt;div class=&quot;character-copy&quot;&gt;
+            &lt;span class=&quot;character-tag alex&quot;&gt;Type 1 Diabetes Screening and Delay Pathway&lt;/span&gt;
+            &lt;h3&gt;Alex&lt;/h3&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Meet Maya&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya’s story is about prevention before diabetes becomes obvious.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Throughout Maya’s pathway, you will help her interpret risk and turn unexpected lab results into a realistic prevention plan.&lt;/p&gt;
+
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Meet Alex&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Alex’s story is about risk before symptoms appear.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Long before symptoms appear, the immune system may already be changing the future.&lt;/p&gt;
+
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel wide white-panel&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;How it works&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;This course unfolds like a clinical story.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;You will move through two interactive pathways. As the stories unfold, you will make decisions, interpret findings, and guide conversations.&lt;/p&gt;
+      &lt;div class=&quot;instruction-grid reveal delay-3&quot;&gt;
+        &lt;div class=&quot;instruction-card&quot;&gt;&lt;h3&gt;Make decisions&lt;/h3&gt;&lt;p&gt;Select responses, identify risk factors, and choose clinical next steps.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;instruction-card&quot;&gt;&lt;h3&gt;Unlock badges&lt;/h3&gt;&lt;p&gt;Badges mark important insights, not perfection. Each one represents a moment where early recognition matters.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;instruction-card&quot;&gt;&lt;h3&gt;Track progress&lt;/h3&gt;&lt;p&gt;The display in the upper right corner shows how far you have moved through the experience.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;instruction-card&quot;&gt;&lt;h3&gt;Reflect and export&lt;/h3&gt;&lt;p&gt;You will capture key takeaways and download reflection PDFs at the end of the pathways.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Badge unlocks&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Every badge represents a meaningful clinical insight.&lt;/h2&gt;
+      &lt;div class=&quot;badge-grid reveal delay-2&quot;&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Screening Insight&lt;/h3&gt;&lt;p&gt;Recognizing when early screening matters before symptoms appear.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Clear Communication&lt;/h3&gt;&lt;p&gt;Using supportive, person-centered language to explain risk and next steps.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Medication Decision&lt;/h3&gt;&lt;p&gt;Identifying when medication support may be considered alongside lifestyle intervention.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Cardiorenal Clarity&lt;/h3&gt;&lt;p&gt;Connecting diabetes prevention and delay to heart and kidney health.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Follow-up Planning&lt;/h3&gt;&lt;p&gt;Recognizing when follow-up, monitoring, and plan adjustments matter.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Stage 1 Staging&lt;/h3&gt;&lt;p&gt;Correctly identifying presymptomatic Stage 1 T1D.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Stage 2 Staging&lt;/h3&gt;&lt;p&gt;Recognizing dysglycemia and progression risk in Stage 2 T1D.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;badge-card&quot;&gt;&lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Referral Readiness&lt;/h3&gt;&lt;p&gt;Identifying when specialty referral and coordinated follow-up are needed.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;reveal delay-4&quot; style=&quot;margin-top:26px;&quot;&gt;Badges represent moments where early recognition changes what happens next.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Before symptoms appear, there is still time.&lt;/h2&gt;
+      &lt;p class=&quot;large-line gold reveal delay-3&quot;&gt;And sometimes, time changes everything.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot; id=&quot;choose-story-section&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Choose a story to begin.&lt;/h2&gt;
+      &lt;div class=&quot;choose-grid reveal delay-2&quot;&gt;
+        &lt;a class=&quot;path-button maya&quot; href=&quot;javascript:void(0)&quot; onclick=&quot;parent.courseNav &amp;&amp; parent.courseNav(&#x27;maya&#x27;); return false;&quot;&gt;
+          &lt;div&gt;
+            &lt;span class=&quot;character-tag maya&quot;&gt;T2D Prevention&lt;/span&gt;
+            &lt;h3&gt;Maya’s Story&lt;/h3&gt;
+            &lt;p&gt;Follow Maya as she makes sense of unexpected lab results and builds a prevention plan.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;span class=&quot;path-cta&quot;&gt;Begin Maya’s Story&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a class=&quot;path-button alex&quot; href=&quot;javascript:void(0)&quot; onclick=&quot;parent.courseNav &amp;&amp; parent.courseNav(&#x27;alex&#x27;); return false;&quot;&gt;
+          &lt;div&gt;
+            &lt;span class=&quot;character-tag alex&quot;&gt;T1D Screening + Delay&lt;/span&gt;
+            &lt;h3&gt;Alex’s Story&lt;/h3&gt;
+            &lt;p&gt;Follow Alex as screening reveals risk before symptoms appear.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;span class=&quot;path-cta&quot;&gt;Begin Alex’s Story&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+  const root=document.getElementById(&#x27;course-intro&#x27;);
+  const scenes=Array.from(root.querySelectorAll(&#x27;.scene&#x27;));
+  const progress=document.getElementById(&#x27;introProgress&#x27;);
+  const hudProgress=document.getElementById(&#x27;hudProgress&#x27;);
+
+  const observer=new IntersectionObserver((entries)=&gt;{
+    entries.forEach(entry=&gt;{
+      if(entry.isIntersecting){
+        entry.target.classList.add(&#x27;in-view&#x27;);
+      }
+    });
+  },{threshold:.32});
+
+  scenes.forEach(scene=&gt;observer.observe(scene));
+
+  function updateProgress(){
+    const rect=root.getBoundingClientRect();
+    const scrollable=root.offsetHeight-window.innerHeight;
+    const scrolled=Math.min(Math.max(-rect.top,0),scrollable);
+    const pct=scrollable&gt;0?(scrolled/scrollable)*100:0;
+    progress.style.width=pct+&#x27;%&#x27;;
+    if(hudProgress) hudProgress.style.width=pct+&#x27;%&#x27;;
+  }
+
+  window.addEventListener(&#x27;scroll&#x27;,updateProgress,{passive:true});
+  window.addEventListener(&#x27;resize&#x27;,updateProgress);
+  updateProgress();
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<iframe id="mayaFrame" class="course-frame" title="Maya Course" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+&lt;title&gt;Maya: The Quiet Shift&lt;/title&gt;
+&lt;style&gt;
+:root{
+  --navy:#061f43;
+  --blue:#1478c8;
+  --sky:#bfe9ff;
+  --teal:#6654d9;
+  --mint:#d9f7eb;
+  --red:#c71f37;
+  --rose:#ffe5eb;
+  --orange:#f97316;
+  --gold:#f6c343;
+  --purple:#6654d9;
+  --ink:#172033;
+  --cream:rgba(255,255,255,.92);
+  --dark-panel:rgba(3,12,30,.78);
+  --soft-border:rgba(246,195,67,.28);
+  --shadow:0 22px 58px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Arial,sans-serif;
+  background:#061f43;
+  color:#fff;
+}
+#maya-story{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  overflow:hidden;
+  background:#061f43;
+}
+.intro-bg{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(199,31,55,.34) 0 10%,transparent 31%),
+    radial-gradient(circle at 85% 18%,rgba(102,84,217,.32) 0 11%,transparent 31%),
+    radial-gradient(circle at 68% 80%,rgba(246,195,67,.22) 0 13%,transparent 36%),
+    linear-gradient(180deg,rgba(3,12,30,.08),rgba(3,12,30,.80)),
+    linear-gradient(135deg,#24122e 0%,#102d5b 46%,#05142a 100%);
+  filter:contrast(1.03) brightness(.95);
+}
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:.48;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),
+    radial-gradient(1.6px 1.6px at 8% 18%, rgba(255,255,255,.70) 50%, transparent 52%),
+    radial-gradient(1.7px 1.7px at 31% 14%, rgba(246,195,67,.70) 50%, transparent 52%),
+    radial-gradient(1.4px 1.4px at 76% 30%, rgba(255,255,255,.72) 50%, transparent 52%);
+  background-size:46px 46px,46px 46px,100% 100%,100% 100%,100% 100%;
+  animation:twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes twinkle{
+  from{opacity:.32;transform:translateY(0)}
+  to{opacity:.62;transform:translateY(-2px)}
+}
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:50;
+  height:6px;
+  width:0;
+  background:linear-gradient(90deg,var(--red),var(--purple),var(--gold));
+  box-shadow:0 0 18px rgba(246,195,67,.48);
+}
+.learning-hud{
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:80;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  border-radius:999px;
+  background:rgba(3,12,30,.72);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 34px rgba(0,0,0,.28);
+  backdrop-filter:blur(12px);
+}
+.hud-item{
+  min-width:74px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+  text-align:center;
+}
+.hud-item.wide{
+  min-width:210px;
+  text-align:left;
+}
+.hud-label{
+  display:block;
+  font-size:10px;
+  line-height:1;
+  opacity:.78;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:4px;
+}
+.hud-track{
+  width:100%;
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  overflow:hidden;
+}
+.hud-fill{
+  width:0%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--red),var(--purple),var(--gold));
+  transition:width .35s ease;
+}
+.scene{
+  position:relative;
+  z-index:10;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:74px 24px;
+}
+.panel{
+  width:100%;
+  max-width:900px;
+  padding:42px 38px;
+  border-radius:28px;
+  background:var(--dark-panel);
+  border:1px solid var(--soft-border);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+  text-align:center;
+}
+.panel.wide{max-width:1020px}
+.panel.light{
+  background:var(--cream);
+  color:var(--ink);
+  border-color:rgba(20,120,200,.24);
+}
+.eyebrow{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:8px 15px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.09);
+  color:var(--sky);
+}
+.panel.light .eyebrow{
+  border-color:rgba(6,31,67,.14);
+  background:rgba(7,138,144,.12);
+  color:#0f766e;
+}
+h1,h2,h3{
+  font-family:&quot;Aptos Display&quot;,&quot;Segoe UI Variable Display&quot;,&quot;Segoe UI&quot;,Inter,system-ui,sans-serif;
+  line-height:1.05;
+  margin:0 0 18px;
+  letter-spacing:-.025em;
+}
+h1{
+  font-size:clamp(2.7rem,5.6vw,5rem);
+  text-shadow:0 8px 26px rgba(0,0,0,.42);
+}
+h2{font-size:clamp(1.9rem,3.4vw,3rem)}
+h3{font-size:1.32rem;color:var(--gold)}
+p{
+  font-size:clamp(1.05rem,1.7vw,1.22rem);
+  line-height:1.72;
+  margin:0 auto 18px;
+  max-width:760px;
+}
+.large-line{
+  font-size:clamp(1.55rem,3.2vw,2.55rem);
+  line-height:1.25;
+  margin:10px auto;
+  max-width:800px;
+  font-weight:850;
+}
+.gold{color:var(--gold)}
+.teal{color:#5eead4}
+.sky{color:var(--sky)}
+.red{color:#ff8ea1}
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .85s ease,transform .85s ease;
+}
+.scene.in-view .reveal{
+  opacity:1;
+  transform:translateY(0);
+}
+.delay-1{transition-delay:.16s}
+.delay-2{transition-delay:.32s}
+.delay-3{transition-delay:.48s}
+.delay-4{transition-delay:.64s}
+.opening-stagger span{
+  display:block;
+  opacity:0;
+  transform:translateY(14px);
+  animation:sentenceFade .75s ease forwards;
+}
+.opening-stagger span:nth-child(1){animation-delay:.42s}
+.opening-stagger span:nth-child(2){animation-delay:.72s}
+.opening-stagger span:nth-child(3){animation-delay:1.02s}
+.opening-stagger span:nth-child(4){animation-delay:1.32s}
+@keyframes sentenceFade{to{opacity:1;transform:translateY(0)}}
+.scroll-cue{
+  margin-top:28px;
+  font-size:.92rem;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.78);
+}
+.scroll-cue::after{
+  content:&quot;&quot;;
+  display:block;
+  width:22px;
+  height:22px;
+  margin:12px auto 0;
+  border-right:2px solid rgba(255,255,255,.72);
+  border-bottom:2px solid rgba(255,255,255,.72);
+  transform:rotate(45deg);
+  animation:bounceArrow 1.4s ease-in-out infinite;
+}
+@keyframes bounceArrow{
+  0%,100%{transform:translateY(0) rotate(45deg);opacity:.55}
+  50%{transform:translateY(8px) rotate(45deg);opacity:1}
+}
+.maya-photo{
+  width:min(270px,72vw);
+  height:270px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:0 18px 42px rgba(0,0,0,.28);
+  margin:0 auto 24px;
+  display:block;
+  background:#fff;
+}
+.panel.light .maya-photo{
+  border-color:rgba(6,31,67,.16);
+  box-shadow:0 18px 42px rgba(6,31,67,.16);
+}
+.word-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin:28px auto 10px;
+  max-width:820px;
+}
+.word-card{
+  padding:22px 16px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
+  font-size:1.22rem;
+  font-weight:900;
+}
+.panel.light .word-card{
+  background:#fff;
+  border-color:rgba(20,120,200,.16);
+}
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin:28px auto 10px;
+  max-width:920px;
+}
+.step{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:20px;
+  padding:20px;
+  text-align:left;
+}
+.panel.light .step{
+  background:#fff;
+  border-color:rgba(20,120,200,.16);
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+.n{
+  display:inline-grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--teal);
+  color:#fff;
+  font-weight:1000;
+  margin-bottom:12px;
+}
+.step:nth-child(2) .n{background:var(--blue)}
+.step:nth-child(3) .n{background:var(--gold);color:#422006}
+.step h3{
+  margin-bottom:8px;
+  font-size:1.15rem;
+  color:var(--navy);
+}
+.step p{
+  margin:0;
+  font-size:.98rem;
+  line-height:1.45;
+}
+.quote{
+  position:relative;
+  margin:26px auto;
+  max-width:760px;
+  padding:24px 28px;
+  border-radius:22px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.16);
+  font-size:clamp(1.3rem,2.4vw,2rem);
+  line-height:1.35;
+  font-weight:850;
+}
+.panel.light .quote{
+  background:#fff;
+  border-color:rgba(20,120,200,.16);
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+.plan-list{
+  display:grid;
+  gap:14px;
+  max-width:760px;
+  margin:26px auto;
+}
+.plan-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-align:left;
+  padding:18px 20px;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid rgba(20,120,200,.16);
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+  font-size:1.1rem;
+  font-weight:850;
+}
+.plan-icon{
+  flex:0 0 auto;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(7,138,144,.14);
+  color:#0f766e;
+  font-size:22px;
+}
+.mission-card{
+  max-width:820px;
+  margin:26px auto 0;
+  padding:28px 26px;
+  border-radius:20px;
+  background:rgba(246,195,67,0.15);
+  border:1px solid rgba(246,195,67,0.34);
+  box-shadow:0 12px 28px rgba(0,0,0,.16);
+  text-align:left;
+}
+.mission-card ul{
+  margin:12px 0 0;
+  padding-left:22px;
+  line-height:1.75;
+  font-size:1.1rem;
+}
+
+
+
+.start-button{
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:230px;
+  margin-top:28px;
+  padding:15px 26px;
+  border-radius:999px;
+  font-size:1rem;
+  font-weight:900;
+  background:var(--orange);
+  color:#fff;
+  box-shadow:0 12px 26px rgba(249,115,22,.34);
+  transition:transform .18s ease,box-shadow .18s ease;
+  text-decoration:none;
+}
+.start-button:hover,
+.start-button:focus{
+  transform:translateY(-2px);
+  box-shadow:0 16px 32px rgba(249,115,22,.44);
+  outline:none;
+}
+.home-after-reflection{
+  margin-left:12px;
+  background:var(--navy);
+}
+@media(max-width:820px){
+  .home-after-reflection{
+    margin-left:0;
+    margin-top:12px;
+  }
+}
+
+
+
+
+.badge-toast{
+  position:fixed;
+  top:92px;
+  right:18px;
+  z-index:90;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  max-width:330px;
+  padding:16px 18px;
+  border-radius:22px;
+  background:rgba(3,12,30,.90);
+  border:1px solid rgba(246,195,67,.45);
+  box-shadow:0 20px 48px rgba(0,0,0,.38);
+  color:#fff;
+  opacity:0;
+  transform:translateY(-12px) scale(.96);
+  pointer-events:none;
+}
+.badge-toast.show{animation:badgePop 2.1s ease both}
+.badge-icon{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(246,195,67,.20);
+  box-shadow:0 0 24px rgba(246,195,67,.35);
+  font-size:26px;
+}
+.badge-toast span{display:block;margin-top:3px;font-size:.92rem;color:rgba(255,255,255,.82)}
+@keyframes badgePop{
+  0%{opacity:0;transform:translateY(-12px) scale(.96)}
+  14%,82%{opacity:1;transform:translateY(0) scale(1)}
+  100%{opacity:0;transform:translateY(-8px) scale(.98)}
+}
+.choices{
+  display:grid;
+  gap:12px;
+  margin:24px auto 0;
+  max-width:820px;
+  text-align:left;
+}
+.choice{
+  width:100%;
+  text-align:left;
+  border:2px solid rgba(255,255,255,.18);
+  border-radius:17px;
+  padding:15px 16px;
+  background:rgba(255,255,255,.08);
+  color:white;
+  font-size:1rem;
+  line-height:1.35;
+  font-weight:780;
+  cursor:pointer;
+  transition:.2s;
+}
+.panel.light .choice{
+  background:#fff;
+  color:var(--ink);
+  border-color:#d9e6f2;
+}
+.choice:hover{transform:translateY(-2px);border-color:var(--gold)}
+.choice.selected{box-shadow:0 0 0 3px rgba(246,195,67,.20)}
+.choice.correct{border-color:#22c55e!important;background:#ecfdf5!important;color:#166534!important}
+.choice.wrong{border-color:#ef4444!important;background:#fff1f2!important;color:#991b1b!important}
+.choice.correct:before{content:&quot;✓ &quot;;font-weight:1000}
+.choice.wrong:before{content:&quot;✕ &quot;;font-weight:1000}
+.submit-quiz{
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:14px;
+  padding:12px 18px;
+  border-radius:999px;
+  font-size:.95rem;
+  font-weight:900;
+  background:var(--orange);
+  color:#fff;
+  box-shadow:0 10px 20px rgba(249,115,22,.30);
+}
+.submit-quiz:disabled{opacity:.55;cursor:not-allowed}
+.feedback{
+  display:none;
+  max-width:820px;
+  margin:14px auto 0;
+  padding:16px;
+  border-radius:16px;
+  border-left:6px solid var(--teal);
+  background:rgba(255,255,255,.10);
+  font-size:1rem;
+  line-height:1.5;
+  text-align:left;
+}
+.panel.light .feedback{
+  background:#f8fafc;
+  border:1px solid #d9e6f2;
+  border-left:6px solid var(--teal);
+  color:#334155;
+}
+.feedback.show{display:block}
+.badge-summary{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:24px auto 0;
+  max-width:860px;
+  text-align:left;
+}
+.badge-earned-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  border:1px solid rgba(20,120,200,.18);
+  border-radius:18px;
+  background:#fff;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+.badge-earned-card.locked{opacity:.55;filter:grayscale(.45)}
+.badge-earned-icon{
+  flex:0 0 auto;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(246,195,67,.20);
+  color:#422006;
+  font-size:24px;
+}
+.badge-earned-card h3{color:var(--navy);margin:0 0 6px;font-size:1.08rem}
+.badge-earned-card p{margin:0;line-height:1.42;font-size:.98rem;color:#475569}
+.badge-earned-status{
+  display:inline-block;
+  margin-top:9px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#ecfdf5;
+  color:#166534;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.badge-earned-card.locked .badge-earned-status{background:#f1f5f9;color:#64748b}
+.reflection-box{
+  width:min(760px,100%);
+  min-height:170px;
+  resize:vertical;
+  border:2px solid rgba(20,120,200,.20);
+  border-radius:20px;
+  padding:18px;
+  font:inherit;
+  font-size:1.05rem;
+  line-height:1.55;
+  color:var(--ink);
+  background:#fff;
+  box-shadow:0 10px 24px rgba(6,31,67,.10);
+}
+.pdf-status{margin-top:14px;color:#334155;font-weight:800}
+
+.quiz{text-align:left}
+.submit-quiz{margin-left:0!important;align-self:flex-start!important}
+.opening-stagger{font-family:&quot;Aptos Display&quot;,&quot;Segoe UI Variable Display&quot;,&quot;Segoe UI&quot;,Inter,system-ui,sans-serif!important}
+.body-stage-title-white .step h3{color:#fff!important}
+.navy-line{color:#4361EE!important}
+.quiet-shift{display:block;margin-top:12px}
+.with-clarity{color:#4361EE!important}
+.reflection-panel .start-button{margin-left:10px}
+@media(max-width:820px){.reflection-panel .start-button{margin-left:0;margin-top:12px}}
+
+@media(max-width:820px){.badge-summary{grid-template-columns:1fr}.badge-toast{left:14px;right:14px;top:112px;max-width:none}}
+
+@media(max-width:820px){
+  .scene{padding:86px 16px 64px}
+  .panel{padding:32px 22px}
+  .word-grid,.timeline{grid-template-columns:1fr}
+  h1{font-size:2.7rem}
+  .learning-hud{
+    left:10px;
+    right:10px;
+    top:10px;
+    border-radius:22px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .hud-item.wide{min-width:190px}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;maya-story&quot; aria-label=&quot;Maya: The Quiet Shift&quot;&gt;
+  &lt;div class=&quot;scroll-progress&quot; id=&quot;introProgress&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;learning-hud badges-only&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;div class=&quot;hud-item wide&quot;&gt;
+      &lt;span class=&quot;hud-label&quot;&gt;Progress&lt;/span&gt;
+      &lt;div class=&quot;hud-track&quot;&gt;&lt;div id=&quot;hudProgress&quot; class=&quot;hud-fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;hud-item&quot;&gt;
+      &lt;span class=&quot;hud-label&quot;&gt;Badges&lt;/span&gt;
+      &lt;strong id=&quot;hudBadges&quot;&gt;0&lt;/strong&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;badgeToast&quot; class=&quot;badge-toast&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;
+    &lt;div&gt;&lt;strong&gt;Badge unlocked!&lt;/strong&gt;&lt;span id=&quot;badgeText&quot;&gt;Great clinical decision.&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;intro-bg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;grid&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h1 class=&quot;reveal delay-1&quot;&gt;Maya: The Quiet Shift&lt;/h1&gt;
+      &lt;p class=&quot;large-line opening-stagger&quot;&gt;
+        &lt;span&gt;Maya didn’t feel sick.&lt;/span&gt;
+        &lt;span&gt;She felt busy with work deadlines and family dinners.&lt;/span&gt;
+        &lt;span&gt;Life kept moving.&lt;/span&gt;
+      &lt;/p&gt;
+      &lt;div class=&quot;scroll-cue reveal delay-4&quot;&gt;Scroll to begin&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;She had been skipping walks she used to take.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;She was grabbing quick meals instead of cooking.&lt;/p&gt;
+      &lt;p class=&quot;reveal delay-3&quot;&gt;When her doctor mentioned screening, she almost said no.&lt;/p&gt;
+      &lt;div class=&quot;quote reveal delay-4&quot;&gt;“I feel fine.”&lt;/div&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;But she agreed anyway.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Screening decision&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya asks who else should be screened.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;She feels fine, but screening is not only for people with symptoms. Select all that apply.&lt;/p&gt;
+      &lt;div class=&quot;quiz&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Everyone age 35 years or older should be screened.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;People with prior gestational diabetes or known prediabetes should be screened.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Adults with overweight or obesity plus risk factors such as family history, hypertension, CVD, PCOS, physical inactivity, or insulin resistance conditions should be screened.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;false&quot;&gt;Only people with classic symptoms should be screened.&lt;/button&gt;&lt;/div&gt;&lt;button class=&#x27;submit-quiz&#x27; type=&#x27;button&#x27;&gt;Submit&lt;/button&gt;&lt;div class=&quot;feedback&quot;&gt;Screening is risk-aligned. For normal results, repeat screening every 3 years. For prediabetes, follow up yearly.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;The result&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;The results came back with a word she had heard but never really understood.&lt;/h2&gt;
+      &lt;p class=&quot;large-line red reveal delay-2&quot;&gt;Prediabetes&lt;/p&gt;
+      &lt;div class=&quot;quote reveal delay-3&quot;&gt;“So… I don’t have diabetes?”&lt;/div&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;“Not yet,” her provider said. “But your body is heading in that direction.”&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;The conversation&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya needs less jargon and more meaning.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;You need to explain prediabetes without blame, fear, or a lecture. Which option is best?&lt;/p&gt;
+      &lt;div class=&quot;quiz&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;true&quot;&gt;“Your body is starting to have trouble keeping sugar in a healthy range. The good news is we caught this early enough to act.”&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;“You are noncompliant, so you need to lose weight.”&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;“Normoglycemia is the objective because dysmetabolism is pathogenic.”&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;feedback&quot;&gt;Clear, person-centered language helps people understand risk without shame. Stories, educational tools, and analogies can make invisible physiology feel more concrete.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Inside the body&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;What Maya didn’t know was this:&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Her body had been changing for years.&lt;/p&gt;
+      &lt;div class=&quot;timeline reveal delay-3 body-stage-title-white&quot;&gt;
+        &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;1&lt;/span&gt;&lt;h3&gt;Insulin resistance&lt;/h3&gt;&lt;p&gt;Her cells slowly stopped responding the way they used to.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;2&lt;/span&gt;&lt;h3&gt;Compensation&lt;/h3&gt;&lt;p&gt;Her pancreas worked harder to keep up.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;3&lt;/span&gt;&lt;h3&gt;Rising glucose&lt;/h3&gt;&lt;p&gt;Little by little, her blood sugar began to rise.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;large-line reveal delay-4&quot;&gt;No alarms. No symptoms.&lt;span class=&quot;gold quiet-shift&quot;&gt;Just a quiet shift.&lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;reveal delay-4&quot;&gt;By the time someone is diagnosed with type 2 diabetes, 50–70% of pancreatic islet cells may no longer be functioning.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;What Maya cannot feel&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Prediabetes is not harmless.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Even glucose levels below the diagnostic threshold for diabetes can affect the body.&lt;/p&gt;
+      &lt;div class=&quot;word-grid reveal delay-3&quot;&gt;
+        &lt;div class=&quot;word-card&quot;&gt;🫀 Cardiovascular&lt;/div&gt;
+        &lt;div class=&quot;word-card&quot;&gt;🧠 Cerebrovascular&lt;/div&gt;
+        &lt;div class=&quot;word-card&quot;&gt;🫘︎ Renal&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;word-grid reveal delay-4&quot;&gt;
+        &lt;div class=&quot;word-card&quot;&gt;👁️ Retinal&lt;/div&gt;
+        &lt;div class=&quot;word-card&quot;&gt;🦶 Neurologic&lt;/div&gt;
+        &lt;div class=&quot;word-card&quot;&gt;🩸 Vascular&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;Complications can begin early. Early detection and intervention are key.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Her doctor explained it in a way that finally clicked.&lt;/h2&gt;
+      &lt;div class=&quot;quote reveal delay-2&quot;&gt;“Think of it like a system working overtime. At some point, it can’t keep up anymore.”&lt;/div&gt;
+      &lt;p class=&quot;reveal delay-3&quot;&gt;Maya sat back.&lt;/p&gt;
+      &lt;div class=&quot;quote reveal delay-4&quot;&gt;“So, this didn’t just start?”&lt;/div&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;“No,” her doctor said. “It’s been building for a long time.”&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light&quot;&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya thought about her life.&lt;/h2&gt;
+      &lt;p class=&quot;large-line reveal delay-2&quot;&gt;Not with guilt.&lt;/p&gt;
+      &lt;p class=&quot;large-line with-clarity reveal delay-3&quot;&gt;With clarity.&lt;/p&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;Because something else became clear, too:&lt;/p&gt;
+      &lt;div class=&quot;mission-card reveal delay-4&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;This wasn’t the end of the story.&lt;/li&gt;
+          &lt;li&gt;This was the moment she could change it.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;The plan&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Together, they built a plan.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Not perfection. Not extremes. Small changes.&lt;/p&gt;
+      &lt;div class=&quot;plan-list reveal delay-3&quot;&gt;
+        &lt;div class=&quot;plan-item&quot;&gt;&lt;span class=&quot;plan-icon&quot;&gt;🚶&lt;/span&gt;&lt;span&gt;Walking after dinner&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;plan-item&quot;&gt;&lt;span class=&quot;plan-icon&quot;&gt;🥗&lt;/span&gt;&lt;span&gt;Adjusting how she ate&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;plan-item&quot;&gt;&lt;span class=&quot;plan-icon&quot;&gt;🎯&lt;/span&gt;&lt;span&gt;Setting goals that felt doable&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;Because even small steps mattered.&lt;/p&gt;&lt;div class=&quot;word-grid reveal delay-4&quot;&gt;&lt;div class=&quot;word-card&quot;&gt;58% lower progression to T2D over 3 years&lt;/div&gt;&lt;div class=&quot;word-card&quot;&gt;71% lower progression among adults ≥65&lt;/div&gt;&lt;div class=&quot;word-card&quot;&gt;16% lower diabetes risk per 1 kg lost&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;p class=&quot;large-line reveal delay-1&quot;&gt;This wasn’t about fear.&lt;/p&gt;
+      &lt;p class=&quot;large-line gold reveal delay-2&quot;&gt;It was about possibility.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Medication decision&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya has made changes, but her A1C continues to rise.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Her A1C remains ≥6% and her BMI remains ≥35 kg/m². What medication support may be considered?&lt;/p&gt;
+      &lt;div class=&quot;quiz&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;true&quot;&gt;Consider metformin in addition to lifestyle intervention.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;Start an SGLT2 inhibitor only to treat prediabetes.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;Stop lifestyle support once medication begins.&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;feedback&quot;&gt;Metformin may be considered when A1C ≥6%, BMI ≥35 kg/m², age 25–59 years, or when A1C/FPG rises despite lifestyle intervention. It works best with a lifestyle program.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Practical start&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;A practical start matters.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Maya’s clinician reviews how to start and monitor metformin.&lt;/p&gt;
+      &lt;div class=&quot;timeline reveal delay-3&quot;&gt;
+        &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;1&lt;/span&gt;&lt;h3&gt;Start with food&lt;/h3&gt;&lt;p&gt;500 mg with food daily for 1 week, then 500 mg twice daily&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;2&lt;/span&gt;&lt;h3&gt;Titrate slowly&lt;/h3&gt;&lt;p&gt;Increase by 500 mg weekly to 1.5–2 g/day as tolerated.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;3&lt;/span&gt;&lt;h3&gt;Monitor&lt;/h3&gt;&lt;p&gt;Check eGFR at baseline and vitamin B12 every 2–3 years.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Cardiorenal question&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya reads about SGLT2 inhibitors online.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;How should a clinician frame SGLT2 inhibitors in a prevention conversation?&lt;/p&gt;
+      &lt;div class=&quot;quiz&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;true&quot;&gt;They are not used to treat prediabetes itself but may be appropriate for approved cardiorenal indications such as CKD or heart failure.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;They are first-line pharmacotherapy for prediabetes.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;They should be used only because they cause modest weight loss.&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;feedback&quot;&gt;SGLT2 inhibitors are used for approved indications such as cardiorenal protection in appropriate individuals, not as first-line pharmacotherapy for prediabetes alone. Review renal function, indication, genital mycotic infections, volume depletion, and sick-day management.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Barriers appear&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya hits a plateau.&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Social events, limited support, costs, and weight-loss plateaus can disrupt progress. The plan needs to bend without breaking. What would be the next best step?&lt;/p&gt;
+      &lt;div class=&quot;quiz&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;true&quot;&gt;Use shared decision-making to adjust the plan and schedule follow-up.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;Tell Maya to come back only if she develops diabetes.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;Assume the plan failed because she was not motivated.&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;feedback&quot;&gt;A strong plan is individualized, culturally responsive, and revisited regularly. Follow-up allows clinicians to assess progress, answer questions, encourage, and adjust treatment.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Months later&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya walked into her follow-up appointment.&lt;/h2&gt;
+      &lt;p class=&quot;large-line navy-line reveal delay-2&quot;&gt;Her labs had improved.&lt;/p&gt;
+      &lt;p class=&quot;reveal delay-3&quot;&gt;Not perfect, but better.&lt;/p&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;And more importantly, she understood what was happening inside her body.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Maya realized something powerful:&lt;/h2&gt;
+      &lt;p class=&quot;large-line reveal delay-2&quot;&gt;Prediabetes wasn’t a warning to panic.&lt;/p&gt;
+      &lt;p class=&quot;large-line navy-line reveal delay-3&quot;&gt;It was a window.&lt;/p&gt;
+      &lt;div class=&quot;word-grid reveal delay-4&quot;&gt;
+        &lt;div class=&quot;word-card&quot;&gt;A chance to intervene&lt;/div&gt;
+        &lt;div class=&quot;word-card&quot;&gt;A chance to prevent&lt;/div&gt;
+        &lt;div class=&quot;word-card&quot;&gt;A chance to rewrite the trajectory&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;As she left the clinic, Maya felt something she hadn’t expected.&lt;/h2&gt;
+      &lt;p class=&quot;large-line reveal delay-2&quot;&gt;Not overwhelmed.&lt;/p&gt;
+      &lt;p class=&quot;large-line teal reveal delay-3&quot;&gt;Empowered.&lt;/p&gt;
+      &lt;p class=&quot;reveal delay-4&quot;&gt;Because now she knew:&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;div class=&quot;large-line reveal delay-1&quot;&gt;The story of type 2 diabetes doesn’t start at diagnosis.&lt;/div&gt;
+      &lt;div class=&quot;large-line reveal delay-2&quot;&gt;And if you catch it early enough…&lt;/div&gt;
+      &lt;div class=&quot;large-line gold reveal delay-3&quot;&gt;It doesn’t have to end there either.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Badge Summary&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;Badges earned in Maya’s story&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Each badge represents a key prevention decision point.&lt;/p&gt;
+      &lt;div id=&quot;badgeSummary&quot; class=&quot;badge-summary reveal delay-3&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;
+    &lt;div class=&quot;panel light wide reflection-panel&quot;&gt;
+      &lt;span class=&quot;eyebrow reveal&quot;&gt;Reflection&lt;/span&gt;
+      &lt;h2 class=&quot;reveal delay-1&quot;&gt;What will you remember about Maya’s story?&lt;/h2&gt;
+      &lt;p class=&quot;reveal delay-2&quot;&gt;Use this space to capture one takeaway about screening, prevention, communication, or follow-up. Then download your reflection as a PDF.&lt;/p&gt;
+      &lt;textarea id=&quot;reflectionText&quot; class=&quot;reflection-box reveal delay-3&quot; placeholder=&quot;Type your reflection here...&quot;&gt;&lt;/textarea&gt;
+      &lt;button class=&quot;start-button reveal delay-4&quot; type=&quot;button&quot; onclick=&quot;exportReflectionPDF()&quot;&gt;Export Reflection PDF&lt;/button&gt;
+      &lt;a class=&quot;start-button reveal delay-4 home-after-reflection&quot; href=&quot;javascript:void(0)&quot; onclick=&quot;parent.courseNav &amp;&amp; parent.courseNav(&#x27;intro-bottom&#x27;); return false;&quot;&gt;Go to the Homepage&lt;/a&gt;
+      &lt;div id=&quot;pdfStatus&quot; class=&quot;pdf-status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+  const root=document.getElementById(&#x27;maya-story&#x27;);
+  const scenes=Array.from(root.querySelectorAll(&#x27;.scene&#x27;));
+  const progress=document.getElementById(&#x27;introProgress&#x27;);
+  const hudProgress=document.getElementById(&#x27;hudProgress&#x27;);
+  const hudBadges=document.getElementById(&#x27;hudBadges&#x27;);
+  const badgeToast=document.getElementById(&#x27;badgeToast&#x27;);
+  const badgeText=document.getElementById(&#x27;badgeText&#x27;);
+  const badgeSummary=document.getElementById(&#x27;badgeSummary&#x27;);
+  const earnedBadges=new Set();
+
+  const badgeCatalog=[
+    {
+      id:&#x27;screening&#x27;,
+      title:&#x27;Screening Insight&#x27;,
+      toast:&#x27;Screening insight earned.&#x27;,
+      explanation:&#x27;You recognized that T2D screening is risk-aligned and should not wait for symptoms.&#x27;
+    },
+    {
+      id:&#x27;communication&#x27;,
+      title:&#x27;Clear Communication&#x27;,
+      toast:&#x27;Communication badge earned.&#x27;,
+      explanation:&#x27;You chose person-centered language that explains prediabetes clearly without blame or shame.&#x27;
+    },
+    {
+      id:&#x27;metformin&#x27;,
+      title:&#x27;Medication Decision&#x27;,
+      toast:&#x27;Medication decision badge earned.&#x27;,
+      explanation:&#x27;You identified when metformin may be considered alongside lifestyle intervention.&#x27;
+    },
+    {
+      id:&#x27;cardiorenal&#x27;,
+      title:&#x27;Cardiorenal Clarity&#x27;,
+      toast:&#x27;Cardiorenal clarity badge earned.&#x27;,
+      explanation:&#x27;You recognized that SGLT2 inhibitors are used for approved cardiorenal indications, not as first-line treatment for prediabetes alone.&#x27;
+    },
+    {
+      id:&#x27;followup&#x27;,
+      title:&#x27;Follow-Up Planning&#x27;,
+      toast:&#x27;Follow-up planning badge earned.&#x27;,
+      explanation:&#x27;You selected shared decision-making and follow-up when barriers appeared.&#x27;
+    }
+  ];
+
+  const observer=new IntersectionObserver((entries)=&gt;{
+    entries.forEach(entry=&gt;{
+      if(entry.isIntersecting){
+        entry.target.classList.add(&#x27;in-view&#x27;);
+        renderBadgeSummary();
+      }
+    });
+  },{threshold:.32});
+  scenes.forEach(scene=&gt;observer.observe(scene));
+
+  function updateProgress(){
+    const rect=root.getBoundingClientRect();
+    const scrollable=root.offsetHeight-window.innerHeight;
+    const scrolled=Math.min(Math.max(-rect.top,0),scrollable);
+    const pct=scrollable&gt;0?(scrolled/scrollable)*100:0;
+    progress.style.width=pct+&#x27;%&#x27;;
+    if(hudProgress) hudProgress.style.width=pct+&#x27;%&#x27;;
+  }
+
+  function renderBadgeSummary(){
+    if(!badgeSummary) return;
+    badgeSummary.innerHTML=badgeCatalog.map(badge=&gt;{
+      const earned=earnedBadges.has(badge.id);
+      return `&lt;div class=&quot;badge-earned-card ${earned?&#x27;&#x27;:&#x27;locked&#x27;}&quot;&gt;
+        &lt;div class=&quot;badge-earned-icon&quot;&gt;${earned?&#x27;🏆&#x27;:&#x27;🔒&#x27;}&lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;${badge.title}&lt;/h3&gt;
+          &lt;p&gt;${badge.explanation}&lt;/p&gt;
+          &lt;span class=&quot;badge-earned-status&quot;&gt;${earned?&#x27;Earned&#x27;:&#x27;Not earned yet&#x27;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;`;
+    }).join(&#x27;&#x27;);
+  }
+
+  function unlockBadge(index){
+    const badge=badgeCatalog[index] || badgeCatalog[0];
+    if(earnedBadges.has(badge.id)) return;
+    earnedBadges.add(badge.id);
+    if(hudBadges) hudBadges.textContent=earnedBadges.size;
+    if(badgeText) badgeText.textContent=badge.toast;
+    if(badgeToast){
+      badgeToast.classList.remove(&#x27;show&#x27;);
+      void badgeToast.offsetWidth;
+      badgeToast.classList.add(&#x27;show&#x27;);
+    }
+    renderBadgeSummary();
+  }
+
+  window.addEventListener(&#x27;scroll&#x27;,updateProgress,{passive:true});
+  window.addEventListener(&#x27;resize&#x27;,updateProgress);
+  updateProgress();
+  renderBadgeSummary();
+
+  document.querySelectorAll(&#x27;.quiz&#x27;).forEach((quiz,index)=&gt;{
+    const choices=[...quiz.querySelectorAll(&#x27;.choice&#x27;)];
+    const feedback=quiz.querySelector(&#x27;.feedback&#x27;);
+    const submit=quiz.querySelector(&#x27;.submit-quiz&#x27;);
+
+    function allCorrectMulti(){
+      const correct=choices.filter(c=&gt;c.dataset.correct===&#x27;true&#x27;);
+      const selected=choices.filter(c=&gt;c.classList.contains(&#x27;selected&#x27;));
+      return correct.every(c=&gt;c.classList.contains(&#x27;selected&#x27;)) &amp;&amp; selected.every(c=&gt;c.dataset.correct===&#x27;true&#x27;);
+    }
+
+    function revealFeedback(isCorrect=false){
+      if(quiz.dataset.answered===&#x27;true&#x27;)return;
+      quiz.dataset.answered=&#x27;true&#x27;;
+      choices.forEach(c=&gt;{
+        c.disabled=true;
+        if(c.dataset.correct===&#x27;true&#x27;)c.classList.add(&#x27;correct&#x27;);
+        if(c.classList.contains(&#x27;selected&#x27;)&amp;&amp;c.dataset.correct===&#x27;false&#x27;)c.classList.add(&#x27;wrong&#x27;);
+      });
+      if(feedback) feedback.classList.add(&#x27;show&#x27;);
+      if(submit) submit.disabled=true;
+      if(isCorrect) unlockBadge(index);
+    }
+
+    choices.forEach(choice=&gt;choice.addEventListener(&#x27;click&#x27;,()=&gt;{
+      if(quiz.dataset.answered===&#x27;true&#x27;)return;
+      const isMulti=choice.classList.contains(&#x27;multi&#x27;);
+      if(isMulti){
+        choice.classList.toggle(&#x27;selected&#x27;);
+        choice.style.boxShadow=choice.classList.contains(&#x27;selected&#x27;)?&#x27;0 0 0 3px rgba(246,195,67,.20)&#x27;:&#x27;none&#x27;;
+        return;
+      }
+      choices.forEach(c=&gt;c.classList.remove(&#x27;selected&#x27;));
+      choice.classList.add(&#x27;selected&#x27;);
+      const isCorrect=choice.dataset.correct===&#x27;true&#x27;;
+      revealFeedback(isCorrect);
+      if(!isCorrect) choice.classList.add(&#x27;wrong&#x27;);
+    }));
+
+    if(submit){
+      submit.addEventListener(&#x27;click&#x27;,()=&gt;{
+        const selected=choices.filter(c=&gt;c.classList.contains(&#x27;selected&#x27;));
+        if(!selected.length){
+          if(feedback){
+            feedback.innerHTML=&#x27;Please select at least one option before submitting.&#x27;;
+            feedback.classList.add(&#x27;show&#x27;);
+          }
+          return;
+        }
+        revealFeedback(allCorrectMulti());
+      });
+    }
+  });
+})();
+
+function downloadPDF(filename,title,lines){
+  const escapePdf=(text)=&gt;String(text).replace(/\\/g,&#x27;\\\\&#x27;).replace(/\(/g,&#x27;\\(&#x27;).replace(/\)/g,&#x27;\\)&#x27;);
+  const wrap=(text,max=86)=&gt;{
+    const words=String(text).split(/\s+/), out=[]; let line=&#x27;&#x27;;
+    words.forEach(word=&gt;{
+      if((line+&#x27; &#x27;+word).trim().length&gt;max){out.push(line.trim()); line=word;}
+      else line=(line+&#x27; &#x27;+word).trim();
+    });
+    if(line)out.push(line); return out;
+  };
+  let y=750; const content=[];
+  content.push(&#x27;BT /F1 22 Tf 72 &#x27;+y+&#x27; Td (&#x27;+escapePdf(title)+&#x27;) Tj ET&#x27;); y-=36;
+  content.push(&#x27;BT /F1 11 Tf 72 &#x27;+y+&#x27; Td (Exported on &#x27;+escapePdf(new Date().toLocaleDateString())+&#x27;) Tj ET&#x27;); y-=38;
+  lines.forEach(block=&gt;{
+    if(block.heading){content.push(&#x27;BT /F1 15 Tf 72 &#x27;+y+&#x27; Td (&#x27;+escapePdf(block.heading)+&#x27;) Tj ET&#x27;); y-=24;}
+    wrap(block.text||&#x27;&#x27;).forEach(line=&gt;{
+      if(y&lt;72)y=72;
+      content.push(&#x27;BT /F1 11 Tf 72 &#x27;+y+&#x27; Td (&#x27;+escapePdf(line)+&#x27;) Tj ET&#x27;); y-=17;
+    });
+    y-=16;
+  });
+  const stream=content.join(&#x27;\n&#x27;);
+  const objects=[
+    &#x27;1 0 obj &lt;&lt; /Type /Catalog /Pages 2 0 R &gt;&gt; endobj&#x27;,
+    &#x27;2 0 obj &lt;&lt; /Type /Pages /Kids [3 0 R] /Count 1 &gt;&gt; endobj&#x27;,
+    &#x27;3 0 obj &lt;&lt; /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources &lt;&lt; /Font &lt;&lt; /F1 4 0 R &gt;&gt; &gt;&gt; /Contents 5 0 R &gt;&gt; endobj&#x27;,
+    &#x27;4 0 obj &lt;&lt; /Type /Font /Subtype /Type1 /BaseFont /Helvetica &gt;&gt; endobj&#x27;,
+    &#x27;5 0 obj &lt;&lt; /Length &#x27;+stream.length+&#x27; &gt;&gt; stream\n&#x27;+stream+&#x27;\nendstream endobj&#x27;
+  ];
+  let pdf=&#x27;%PDF-1.4\n&#x27;; const offsets=[0];
+  objects.forEach(obj=&gt;{offsets.push(pdf.length); pdf+=obj+&#x27;\n&#x27;;});
+  const xref=pdf.length; pdf+=&#x27;xref\n0 &#x27;+(objects.length+1)+&#x27;\n0000000000 65535 f \n&#x27;;
+  offsets.slice(1).forEach(offset=&gt;{pdf+=String(offset).padStart(10,&#x27;0&#x27;)+&#x27; 00000 n \n&#x27;;});
+  pdf+=&#x27;trailer &lt;&lt; /Size &#x27;+(objects.length+1)+&#x27; /Root 1 0 R &gt;&gt;\nstartxref\n&#x27;+xref+&#x27;\n%%EOF&#x27;;
+  const blob=new Blob([pdf],{type:&#x27;application/pdf&#x27;}); const url=URL.createObjectURL(blob);
+  const a=document.createElement(&#x27;a&#x27;); a.href=url; a.download=filename; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+
+function exportReflectionPDF(){
+  const text=(document.getElementById(&#x27;reflectionText&#x27;)?.value || &#x27;&#x27;).trim() || &#x27;No reflection entered yet.&#x27;;
+  const status=document.getElementById(&#x27;pdfStatus&#x27;);
+  const badgeCards=[...document.querySelectorAll(&#x27;.badge-earned-card&#x27;)].map(card=&gt;{
+    const title=card.querySelector(&#x27;h3&#x27;)?.textContent||&#x27;&#x27;;
+    const stat=card.querySelector(&#x27;.badge-earned-status&#x27;)?.textContent||&#x27;&#x27;;
+    const explanation=card.querySelector(&#x27;p&#x27;)?.textContent||&#x27;&#x27;;
+    return `${title} (${stat}): ${explanation}`;
+  }).join(&#x27;\n&#x27;);
+  downloadPDF(&#x27;maya-reflection.pdf&#x27;,&#x27;Maya: The Quiet Shift&#x27;,[
+    {heading:&#x27;Reflection Prompt&#x27;,text:&#x27;What will you remember about Maya’s story?&#x27;},
+    {heading:&#x27;Your Reflection&#x27;,text:text},
+    {heading:&#x27;Badges Earned in the Course&#x27;,text:badgeCards}
+  ]);
+  if(status)status.textContent=&#x27;Your PDF has been downloaded.&#x27;;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<iframe id="alexFrame" class="course-frame" title="Alex Course" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+&lt;title&gt;Alex: The Invisible Beginning&lt;/title&gt;
+&lt;style&gt;
+:root{
+  --navy:#061f43; --blue:#1478c8; --sky:#bfe9ff; --teal:#078a90; --mint:#d9f7eb;
+  --red:#c71f37; --rose:#ffe5eb; --orange:#f97316; --gold:#f6c343; --purple:#6654d9;
+  --ink:#172033; --cream:rgba(255,255,255,.92); --dark-panel:rgba(3,12,30,.78);
+  --soft-border:rgba(246,195,67,.28); --shadow:0 22px 58px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Arial,sans-serif;background:#061f43;color:#fff;}
+#alex-prequel{position:relative;width:100%;min-height:100vh;overflow:hidden;background:#061f43;}
+.intro-bg{position:fixed;inset:0;z-index:1;background:
+  radial-gradient(circle at 15% 20%,rgba(199,31,55,.34) 0 10%,transparent 31%),
+  radial-gradient(circle at 85% 18%,rgba(102,84,217,.32) 0 11%,transparent 31%),
+  radial-gradient(circle at 68% 80%,rgba(246,195,67,.22) 0 13%,transparent 36%),
+  linear-gradient(180deg,rgba(3,12,30,.08),rgba(3,12,30,.80)),
+  linear-gradient(135deg,#24122e 0%,#102d5b 46%,#05142a 100%);filter:contrast(1.03) brightness(.95);}
+.grid{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.48;background-image:
+  linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),
+  radial-gradient(1.6px 1.6px at 8% 18%, rgba(255,255,255,.70) 50%, transparent 52%),
+  radial-gradient(1.7px 1.7px at 31% 14%, rgba(246,195,67,.70) 50%, transparent 52%),
+  radial-gradient(1.4px 1.4px at 76% 30%, rgba(255,255,255,.72) 50%, transparent 52%);
+  background-size:46px 46px,46px 46px,100% 100%,100% 100%,100% 100%;animation:twinkle 8s ease-in-out infinite alternate;}
+@keyframes twinkle{from{opacity:.32;transform:translateY(0)}to{opacity:.62;transform:translateY(-2px)}}
+.scroll-progress{position:fixed;top:0;left:0;z-index:50;height:6px;width:0;background:linear-gradient(90deg,var(--red),var(--purple),var(--gold));box-shadow:0 0 18px rgba(246,195,67,.48)}
+.scene{position:relative;z-index:10;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:74px 24px;}
+.panel{width:100%;max-width:900px;padding:42px 38px;border-radius:28px;background:var(--dark-panel);border:1px solid var(--soft-border);box-shadow:var(--shadow);backdrop-filter:blur(12px);text-align:center;}
+.panel.wide{max-width:1020px}.panel.light{background:var(--cream);color:var(--ink);border-color:rgba(20,120,200,.24)}
+.eyebrow{display:inline-block;margin-bottom:16px;padding:8px 15px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);color:var(--sky)}
+.panel.light .eyebrow{border-color:rgba(6,31,67,.14);background:rgba(20,120,200,.10);color:var(--navy)}
+h1,h2,h3{font-family:&quot;Aptos Display&quot;,&quot;Segoe UI Variable Display&quot;,&quot;Segoe UI&quot;,Inter,system-ui,sans-serif;line-height:1.05;margin:0 0 18px;letter-spacing:-.025em;}
+h1{font-size:clamp(2.7rem,5.6vw,5rem);text-shadow:0 8px 26px rgba(0,0,0,.42)}
+h2{font-size:clamp(1.9rem,3.4vw,3rem)}h3{font-size:1.32rem;color:var(--gold)}
+p{font-size:clamp(1.05rem,1.7vw,1.22rem);line-height:1.72;margin:0 auto 18px;max-width:720px;}
+.large-line{font-size:clamp(1.55rem,3.2vw,2.55rem);line-height:1.25;margin:10px auto;max-width:780px;font-weight:800;}.gold{color:var(--gold)}.red{color:#ff8ea1}.sky{color:var(--sky)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform .85s ease}.scene.in-view .reveal{opacity:1;transform:translateY(0)}
+.delay-1{transition-delay:.16s}.delay-2{transition-delay:.32s}.delay-3{transition-delay:.48s}.delay-4{transition-delay:.64s}
+.scroll-cue{margin-top:28px;font-size:.92rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.scroll-cue::after{content:&quot;&quot;;display:block;width:22px;height:22px;margin:12px auto 0;border-right:2px solid rgba(255,255,255,.72);border-bottom:2px solid rgba(255,255,255,.72);transform:rotate(45deg);animation:bounceArrow 1.4s ease-in-out infinite}
+@keyframes bounceArrow{0%,100%{transform:translateY(0) rotate(45deg);opacity:.55}50%{transform:translateY(8px) rotate(45deg);opacity:1}}
+.word-grid,.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px auto 10px;max-width:820px}.word-card,.metric-card{padding:22px 16px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 24px rgba(0,0,0,.18);font-size:1.22rem;font-weight:900}.panel.light .word-card,.panel.light .metric-card{background:#fff;border-color:rgba(20,120,200,.16);}
+.metric-card b{display:block;color:var(--navy);font-size:1.1rem;margin-bottom:7px}.metric-card span{display:block;font-size:.96rem;font-weight:650;line-height:1.42;color:#475569}.white-metrics .metric-card,.white-metrics .metric-card b,.white-metrics .metric-card span{color:#fff!important}
+.question-stack{display:grid;gap:16px;max-width:820px;margin:28px auto 0}.question-card{padding:24px 22px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(246,195,67,.30);text-align:left;box-shadow:0 10px 24px rgba(0,0,0,.18);font-size:1.12rem;line-height:1.55}.question-card strong{color:var(--gold);display:block;margin-bottom:6px;font-size:.9rem;letter-spacing:1.4px;text-transform:uppercase}.panel.light .question-card{background:#fff;border-color:rgba(199,31,55,.18)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px auto 10px;max-width:940px}.step{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:18px;text-align:left}.panel.light .step{background:#fff;border-color:rgba(20,120,200,.16)}.n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:1000;margin-bottom:10px}.step:nth-child(2) .n{background:var(--purple)}.step:nth-child(3) .n{background:var(--teal)}.step:nth-child(4) .n{background:var(--gold);color:#422006}.step h3{font-size:1.08rem;margin-bottom:8px}.step p{font-size:.95rem;line-height:1.4;margin:0;color:inherit}
+.quiz{max-width:820px;margin:28px auto 0;text-align:left}.quiz-title{font-weight:950;font-size:1.25rem;line-height:1.35;text-align:center;margin-bottom:15px}.choices{display:grid;gap:12px}.choice{width:100%;text-align:left;border:2px solid rgba(255,255,255,.18);border-radius:17px;padding:15px 16px;background:rgba(255,255,255,.08);color:white;font-size:1rem;line-height:1.35;font-weight:780;cursor:pointer;transition:.2s}.panel.light .choice{background:#fff;color:var(--ink);border-color:#d9e6f2}.choice:hover{transform:translateY(-2px);border-color:var(--gold)}.choice.correct{border-color:#22c55e!important;background:#ecfdf5!important;color:#166534!important}.choice.wrong{border-color:#ef4444!important;background:#fff1f2!important;color:#991b1b!important}.choice.correct:before{content:&quot;✓ &quot;;font-weight:1000}.choice.wrong:before{content:&quot;✕ &quot;;font-weight:1000}.feedback{display:none;margin-top:14px;padding:16px;border-radius:16px;border-left:6px solid var(--teal);background:rgba(255,255,255,.10);font-size:1rem;line-height:1.5}.panel.light .feedback{background:#f8fafc;border:1px solid #d9e6f2;border-left:6px solid var(--teal);color:#334155}.feedback.show{display:block}
+.mission-card{max-width:820px;margin:26px auto 0;padding:28px 26px;border-radius:20px;background:rgba(246,195,67,0.15);border:1px solid rgba(246,195,67,0.34);box-shadow:0 12px 28px rgba(0,0,0,.16);text-align:left}.mission-card ul{margin:12px 0 0;padding-left:22px;line-height:1.75;font-size:1.1rem}
+.body-map{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:860px;margin:24px auto}.organ{text-align:center;border:1px solid rgba(255,255,255,.15);border-radius:16px;background:rgba(255,255,255,.08);padding:14px}.panel.light .organ{background:#fff;border-color:#d9e6f2}.organ .icon{font-size:34px}.organ b{display:block;margin-top:6px}
+.start-button{appearance:none;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-width:230px;margin-top:28px;padding:15px 26px;border-radius:999px;font-size:1rem;font-weight:900;background:var(--orange);color:#fff;box-shadow:0 12px 26px rgba(249,115,22,.34);transition:transform .18s ease,box-shadow .18s ease}.start-button:hover,.start-button:focus{transform:translateY(-2px);box-shadow:0 16px 32px rgba(249,115,22,.44);outline:none}.tiny{font-size:.95rem;color:rgba(255,255,255,.78)}.opening-copy{text-align:center}.submit-quiz{appearance:none;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-top:14px;padding:12px 18px;border-radius:999px;font-size:.95rem;font-weight:900;background:var(--orange);color:#fff;box-shadow:0 10px 20px rgba(249,115,22,.30);transition:transform .18s ease,box-shadow .18s ease}.submit-quiz:hover,.submit-quiz:focus{transform:translateY(-2px);box-shadow:0 14px 28px rgba(249,115,22,.40);outline:none}.submit-quiz:disabled{opacity:.55;cursor:not-allowed;transform:none}
+
+.learning-hud{
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:80;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  border-radius:999px;
+  background:rgba(3,12,30,.72);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 34px rgba(0,0,0,.28);
+  backdrop-filter:blur(12px);
+}
+.hud-item{
+  min-width:74px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+  text-align:center;
+}
+.hud-item.wide{min-width:190px;text-align:left}
+.hud-label{
+  display:block;
+  font-size:10px;
+  line-height:1;
+  opacity:.78;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:4px;
+}
+.hud-track{
+  width:100%;
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  overflow:hidden;
+}
+.hud-fill{
+  width:0%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--red),var(--purple),var(--gold));
+  transition:width .35s ease;
+}
+.badge-toast{
+  position:fixed;
+  top:92px;
+  right:18px;
+  z-index:90;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  max-width:330px;
+  padding:16px 18px;
+  border-radius:22px;
+  background:rgba(3,12,30,.90);
+  border:1px solid rgba(246,195,67,.45);
+  box-shadow:0 20px 48px rgba(0,0,0,.38);
+  color:#fff;
+  opacity:0;
+  transform:translateY(-12px) scale(.96);
+  pointer-events:none;
+}
+.badge-toast.show{animation:badgePop 2.1s ease both}
+.badge-icon{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(246,195,67,.20);
+  box-shadow:0 0 24px rgba(246,195,67,.35);
+  font-size:26px;
+}
+.badge-toast span{display:block;margin-top:3px;font-size:.92rem;color:rgba(255,255,255,.82)}
+@keyframes badgePop{
+  0%{opacity:0;transform:translateY(-12px) scale(.96)}
+  14%,82%{opacity:1;transform:translateY(0) scale(1)}
+  100%{opacity:0;transform:translateY(-8px) scale(.98)}
+}
+.opening-stagger span{
+  display:block;
+  opacity:0;
+  transform:translateY(14px);
+  animation:sentenceFade .75s ease forwards;
+}
+.opening-stagger span:nth-child(1){animation-delay:.42s}
+.opening-stagger span:nth-child(2){animation-delay:.72s}
+.opening-stagger span:nth-child(3){animation-delay:1.02s}
+@keyframes sentenceFade{to{opacity:1;transform:translateY(0)}}
+.reflection-box{
+  width:min(760px,100%);
+  min-height:170px;
+  resize:vertical;
+  border:2px solid rgba(20,120,200,.20);
+  border-radius:20px;
+  padding:18px;
+  font:inherit;
+  font-size:1.05rem;
+  line-height:1.55;
+  color:var(--ink);
+  background:#fff;
+  box-shadow:0 10px 24px rgba(6,31,67,.10);
+}
+.pdf-status{
+  margin-top:14px;
+  color:#334155;
+  font-weight:800;
+}
+.home-after-reflection{
+  margin-left:12px;
+  background:var(--navy);
+}
+
+.badges-only .hud-item.wide{min-width:210px}
+.badge-summary{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:24px auto 0;
+  max-width:860px;
+  text-align:left;
+}
+.badge-earned-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  border:1px solid rgba(20,120,200,.18);
+  border-radius:18px;
+  background:#fff;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+.badge-earned-card.locked{
+  opacity:.55;
+  filter:grayscale(.45);
+}
+.badge-earned-icon{
+  flex:0 0 auto;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(246,195,67,.20);
+  color:#422006;
+  font-size:24px;
+}
+.badge-earned-card h3{
+  color:var(--navy);
+  margin:0 0 6px;
+  font-size:1.08rem;
+}
+.badge-earned-card p{
+  margin:0;
+  line-height:1.42;
+  font-size:.98rem;
+  color:#475569;
+}
+.badge-earned-status{
+  display:inline-block;
+  margin-top:9px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#ecfdf5;
+  color:#166534;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.badge-earned-card.locked .badge-earned-status{
+  background:#f1f5f9;
+  color:#64748b;
+}
+@media(max-width:820px){
+  .badge-summary{grid-template-columns:1fr}
+}
+
+@media(max-width:820px){
+  .home-after-reflection{
+    margin-left:0;
+    margin-top:12px;
+  }
+}
+
+.badges-only .hud-item.wide{min-width:210px}
+.badge-summary{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:24px auto 0;
+  max-width:860px;
+  text-align:left;
+}
+.badge-earned-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  border:1px solid rgba(20,120,200,.18);
+  border-radius:18px;
+  background:#fff;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+.badge-earned-card.locked{
+  opacity:.55;
+  filter:grayscale(.45);
+}
+.badge-earned-icon{
+  flex:0 0 auto;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(246,195,67,.20);
+  color:#422006;
+  font-size:24px;
+}
+.badge-earned-card h3{
+  color:var(--navy);
+  margin:0 0 6px;
+  font-size:1.08rem;
+}
+.badge-earned-card p{
+  margin:0;
+  line-height:1.42;
+  font-size:.98rem;
+  color:#475569;
+}
+.badge-earned-status{
+  display:inline-block;
+  margin-top:9px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#ecfdf5;
+  color:#166534;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.badge-earned-card.locked .badge-earned-status{
+  background:#f1f5f9;
+  color:#64748b;
+}
+@media(max-width:820px){
+  .badge-summary{grid-template-columns:1fr}
+}
+
+@media(max-width:820px){
+  .learning-hud{
+    left:10px;
+    right:10px;
+    top:10px;
+    border-radius:22px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .hud-item{min-width:70px}
+  .hud-item.wide{min-width:160px}
+  .badge-toast{
+    left:14px;
+    right:14px;
+    top:112px;
+    max-width:none;
+  }
+}
+
+
+.badges-only .hud-item.wide{min-width:210px}
+.badge-summary{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:24px auto 0;
+  max-width:860px;
+  text-align:left;
+}
+.badge-earned-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  border:1px solid rgba(20,120,200,.18);
+  border-radius:18px;
+  background:#fff;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(6,31,67,.08);
+}
+.badge-earned-card.locked{
+  opacity:.55;
+  filter:grayscale(.45);
+}
+.badge-earned-icon{
+  flex:0 0 auto;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(246,195,67,.20);
+  color:#422006;
+  font-size:24px;
+}
+.badge-earned-card h3{
+  color:var(--navy);
+  margin:0 0 6px;
+  font-size:1.08rem;
+}
+.badge-earned-card p{
+  margin:0;
+  line-height:1.42;
+  font-size:.98rem;
+  color:#475569;
+}
+.badge-earned-status{
+  display:inline-block;
+  margin-top:9px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#ecfdf5;
+  color:#166534;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.badge-earned-card.locked .badge-earned-status{
+  background:#f1f5f9;
+  color:#64748b;
+}
+@media(max-width:820px){
+  .badge-summary{grid-template-columns:1fr}
+}
+
+@media(max-width:820px){.scene{padding:64px 16px}.panel{padding:32px 22px}.word-grid,.metric-grid,.timeline,.body-map{grid-template-columns:1fr}h1{font-size:2.7rem}.choice{font-size:.98rem}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;alex-prequel&quot; aria-label=&quot;Alex: Type 1 Diabetes — The Invisible Beginning&quot;&gt;
+  &lt;div class=&quot;learning-hud badges-only&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;div class=&quot;hud-item wide&quot;&gt;&lt;span class=&quot;hud-label&quot;&gt;Progress&lt;/span&gt;&lt;div class=&quot;hud-track&quot;&gt;&lt;div id=&quot;hudProgress&quot; class=&quot;hud-fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;hud-item&quot;&gt;&lt;span class=&quot;hud-label&quot;&gt;Badges&lt;/span&gt;&lt;strong id=&quot;hudBadges&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;badgeToast&quot; class=&quot;badge-toast&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;div class=&quot;badge-icon&quot;&gt;🏆&lt;/div&gt;
+    &lt;div&gt;&lt;strong&gt;Badge unlocked!&lt;/strong&gt;&lt;span id=&quot;badgeText&quot;&gt;Great clinical decision.&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;scroll-progress&quot; id=&quot;introProgress&quot;&gt;&lt;/div&gt;&lt;div class=&quot;intro-bg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;&lt;div class=&quot;grid&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;h1 class=&quot;reveal delay-1&quot;&gt;Alex: The Invisible Beginning&lt;/h1&gt;&lt;p class=&quot;reveal delay-2 opening-copy opening-stagger&quot;&gt;&lt;span&gt;Alex was 15 when his mom first took him for a diabetes screening.&lt;/span&gt;&lt;span&gt;It didn’t feel urgent.&lt;/span&gt;&lt;span&gt;He was healthy and enjoyed soccer practice after school, late-night snacks, and joking with friends.&lt;/span&gt;&lt;/p&gt;&lt;div class=&quot;scroll-cue reveal delay-4&quot;&gt;Scroll to begin&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;The only reason they were there was family history.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;His uncle had type 1 diabetes.&lt;/p&gt;&lt;p class=&quot;large-line gold reveal delay-3&quot;&gt;“Just a blood test,” his mom said.&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;Clinical pause&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;If Alex has no symptoms, why screen?&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;What should you tell Alex? Select all that apply.&lt;/p&gt;&lt;div class=&quot;quiz reveal delay-3 needs-submit&quot; data-answered=&quot;false&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Family history is a key reason to discuss screening.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Stage 1 and Stage 2 are usually presymptomatic.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Screening can identify risk before clinical onset.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;false&quot;&gt;He doesn’t need to be screened until he has increased thirst or weight loss.&lt;/button&gt;&lt;/div&gt;&lt;button class=&quot;submit-quiz&quot; type=&quot;button&quot;&gt;Submit&lt;/button&gt;&lt;div class=&quot;feedback&quot;&gt;Alex has a family history of type 1 diabetes. Although he is not exhibiting symptoms, stage 1 and stage 2 are usually presymptomatic, and screening can identify his risk.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;The result&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;The results came back quietly.&lt;/h2&gt;&lt;p class=&quot;large-line red reveal delay-2&quot;&gt;Autoantibodies&lt;/p&gt;&lt;div class=&quot;word-grid&quot;&gt;&lt;div class=&quot;word-card reveal delay-1&quot;&gt;No symptoms&lt;/div&gt;&lt;div class=&quot;word-card reveal delay-2&quot;&gt;No changes&lt;/div&gt;&lt;div class=&quot;word-card reveal delay-3&quot;&gt;Nothing Alex could feel&lt;/div&gt;&lt;/div&gt;&lt;p class=&quot;reveal delay-4&quot;&gt;But something had already begun.&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel wide&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;The immune system had already started attacking his beta cells.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Once autoantibodies appear, the immune system has begun targeting insulin-producing beta cells. From that point forward, progression to clinical diabetes becomes increasingly likely over time.&lt;/p&gt;&lt;div class=&quot;timeline reveal delay-3&quot;&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;1&lt;/span&gt;&lt;h3&gt;Genetic risk&lt;/h3&gt;&lt;p&gt;Family history or known genetic risk raises concern.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;2&lt;/span&gt;&lt;h3&gt;Immune activation&lt;/h3&gt;&lt;p&gt;The immune system begins targeting beta cells.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;3&lt;/span&gt;&lt;h3&gt;Autoantibodies&lt;/h3&gt;&lt;p&gt;IA, GAD, IA-2, or ZnT8 may be detected.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;4&lt;/span&gt;&lt;h3&gt;Beta-cell loss&lt;/h3&gt;&lt;p&gt;Insulin production declines over time.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Months passed. Then a year.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Alex still felt normal, but his body was changing in ways no one could see.&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;Stage Alex&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Alex has two or more islet autoantibodies.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;His glucose is normal. Given ≥2 autoantibodies and normoglycemia, what stage is Alex in?&lt;/p&gt;&lt;div class=&quot;quiz reveal delay-3&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;true&quot;&gt;Stage 1 T1D&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;Stage 2 T1D&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;Stage 3 T1D&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;feedback&quot;&gt;Stage 1: at least 2 autoantibodies, normoglycemia, and presymptomatic&lt;br&gt;Stage 2: at least 2 autoantibodies, dysglycemia, and typically presymptomatic&lt;br&gt;Stage 3: at least 2 autoantibodies, overt hyperglycemia, and symptomatic clinical onset&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel wide&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Having autoantibodies chnaged Alex’s future risk.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;The younger a person is, the faster progression from Stage 1 to Stage 3 may occur.&lt;/p&gt;&lt;div class=&quot;metric-grid reveal delay-3 white-metrics&quot;&gt;&lt;div class=&quot;metric-card&quot;&gt;&lt;b&gt;Stage 1&lt;/b&gt;&lt;span&gt;44% 5-year risk&lt;br&gt;70% 10-year risk&lt;br&gt;85% 15-year risk&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;metric-card&quot;&gt;&lt;b&gt;Stage 2&lt;/b&gt;&lt;span&gt;60% 2-year risk&lt;br&gt;75% 5-year risk&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;metric-card&quot;&gt;&lt;b&gt;Clinical meaning&lt;/b&gt;&lt;span&gt;Risk is not abstract. It shapes monitoring, education, referral, and planning.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;His doctor explained it gently.&lt;/h2&gt;&lt;p class=&quot;large-line sky reveal delay-2&quot;&gt;“This doesn’t happen overnight. It’s been developing for a while.”&lt;/p&gt;&lt;p class=&quot;reveal delay-3&quot;&gt;Alex nodded, but it didn’t feel real.&lt;/p&gt;&lt;p class=&quot;reveal delay-4&quot;&gt;How could something so serious feel like nothing at all?&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;A new result&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Alex still feels well, but his glucose pattern has changed.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Follow-up testing now shows dysglycemia. What stage is Alex in now?&lt;/p&gt;&lt;div class=&quot;quiz reveal delay-3&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;true&quot;&gt;Stage 2 T1D: ≥2 autoantibodies with dysglycemia, typically presymptomatic.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;Stage 1 T1D because symptoms have not appeared.&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;No T1D risk because he is not symptomatic.&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;feedback&quot;&gt;Dysglycemia moves Alex into Stage 2 T1D. This is a critical referral moment, because Stage 2 identification enables consideration of immune-modulating therapy.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel wide&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Beta-cell function is declining.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Type 1 diabetes develops gradually through a predictable decline in beta-cell function.&lt;/p&gt;&lt;div class=&quot;timeline reveal delay-3&quot;&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;1&lt;/span&gt;&lt;h3&gt;Slow process&lt;/h3&gt;&lt;p&gt;Develops over months to years.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;2&lt;/span&gt;&lt;h3&gt;Starts before symptoms&lt;/h3&gt;&lt;p&gt;Autoimmunity begins long before diagnosis.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;3&lt;/span&gt;&lt;h3&gt;Diagnosis happens late&lt;/h3&gt;&lt;p&gt;Symptoms appear after significant beta-cell loss.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;n&quot;&gt;4&lt;/span&gt;&lt;h3&gt;C-peptide declines&lt;/h3&gt;&lt;p&gt;Insulin production falls as beta-cell mass declines.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;Referral moment&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;What should primary care do now?&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Alex is not alone in this moment. His care team has a role to play. Select all the actions that belong in the primary care role.&lt;/p&gt;&lt;div class=&quot;quiz reveal delay-3 needs-submit&quot;&gt;&lt;div class=&quot;quiz-title&quot;&gt;&lt;/div&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Educate Alex about symptoms and what to watch for.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Refer for specialty evaluation and confirmation of staging.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;true&quot;&gt;Coordinate follow-up after referral.&lt;/button&gt;&lt;button class=&quot;choice multi&quot; data-correct=&quot;false&quot;&gt;Tell Alex there is nothing to do until Stage 3.&lt;/button&gt;&lt;/div&gt;&lt;button class=&quot;submit-quiz&quot; type=&quot;button&quot;&gt;Submit&lt;/button&gt;&lt;div class=&quot;feedback&quot;&gt;Primary care identifies increased risk, educates, refers for autoantibody screening and staging, coordinates care, and reinforces follow-up.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel wide&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Delay does not mean cure, but delay can matter.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;For individuals with Stage 2 T1D, teplizumab may be considered after specialty confirmation.&lt;/p&gt;&lt;div class=&quot;word-grid reveal delay-3&quot;&gt;&lt;div class=&quot;word-card&quot;&gt;Stage 2 T1D&lt;br&gt;&lt;span style=&quot;font-size:.9rem;font-weight:650&quot;&gt;≥2 autoantibodies + dysglycemia&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;word-card&quot;&gt;Expected effect&lt;br&gt;&lt;span style=&quot;font-size:.9rem;font-weight:650&quot;&gt;Delay progression to Stage 3&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;word-card&quot;&gt;Important limit&lt;br&gt;&lt;span style=&quot;font-size:.9rem;font-weight:650&quot;&gt;Does not prevent autoimmunity or eliminate long-term risk&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;Communication choice&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Alex needs clarity, not alarm.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Choose the explanation most likely to support understanding and follow-through.&lt;/p&gt;&lt;div class=&quot;quiz reveal delay-3&quot;&gt;&lt;div class=&quot;choices&quot;&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;true&quot;&gt;“Your tests suggest your immune system may be attacking the cells that make insulin. You may feel well now, but this gives us time to monitor, educate, and connect you with specialty care.”&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;“You definitely have diabetes now, so you should be scared.”&lt;/button&gt;&lt;button class=&quot;choice&quot; data-correct=&quot;false&quot;&gt;“This is too complicated to explain in primary care.”&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;feedback&quot;&gt;Clear language, dialogue, shared decision-making, and scheduled follow-up help families understand what is happening without panic.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Later, sitting in the clinic room, Alex stared at his hands.&lt;/h2&gt;&lt;p class=&quot;large-line sky reveal delay-2&quot;&gt;“So, this didn’t just happen?”&lt;/p&gt;&lt;p class=&quot;reveal delay-3&quot;&gt;His doctor shook her head.&lt;/p&gt;&lt;p class=&quot;reveal delay-4&quot;&gt;“It’s been progressing for years. The difference is that we caught it earlier than most people do.”&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;Why early detection matters&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Hyperglycemia can affect the same body systems.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Once hyperglycemia is established, both T1D and T2D pathways share downstream metabolic and vascular complications.&lt;/p&gt;&lt;div class=&quot;body-map reveal delay-3&quot;&gt;&lt;div class=&quot;organ&quot;&gt;&lt;div class=&quot;icon&quot;&gt;🧠&lt;/div&gt;&lt;b&gt;Stroke&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;organ&quot;&gt;&lt;div class=&quot;icon&quot;&gt;🫀&lt;/div&gt;&lt;b&gt;Heart attack&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;organ&quot;&gt;&lt;div class=&quot;icon&quot;&gt;🦶&lt;/div&gt;&lt;b&gt;Neuropathy&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;organ&quot;&gt;&lt;div class=&quot;icon&quot;&gt;👁️&lt;/div&gt;&lt;b&gt;Retinopathy&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;organ&quot;&gt;&lt;div class=&quot;icon&quot;&gt;🫘&lt;/div&gt;&lt;b&gt;Kidney failure&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;And that mattered.&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Because now, Alex and his family understood something powerful:&lt;/p&gt;&lt;div class=&quot;mission-card reveal delay-3&quot;&gt;&lt;ul&gt;&lt;li&gt;The disease didn’t start with symptoms.&lt;/li&gt;&lt;li&gt;It started long before with silent autoimmunity.&lt;/li&gt;&lt;li&gt;Early detection gave them time to prepare, learn, and act.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;That night, Alex still felt like himself.&lt;/h2&gt;&lt;p class=&quot;large-line gold reveal delay-2&quot;&gt;Because he was.&lt;/p&gt;&lt;p class=&quot;reveal delay-3&quot;&gt;But now he knew something most people don’t:&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;large-line reveal delay-1&quot;&gt;Even when you feel fine, your body can be telling a story.&lt;/div&gt;&lt;div class=&quot;large-line reveal delay-2&quot;&gt;And if you listen early enough, &lt;span class=&quot;gold&quot;&gt;you can change how that story unfolds.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide badge-summary-panel&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;Badge Summary&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;Badges earned in Alex’s story&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Each badge represents a key clinical decision point from the pathway.&lt;/p&gt;&lt;div id=&quot;badgeSummary&quot; class=&quot;badge-summary reveal delay-3&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;scene&quot;&gt;&lt;div class=&quot;panel light wide reflection-panel&quot;&gt;&lt;span class=&quot;eyebrow reveal&quot;&gt;Reflection&lt;/span&gt;&lt;h2 class=&quot;reveal delay-1&quot;&gt;What will you remember about Alex’s story?&lt;/h2&gt;&lt;p class=&quot;reveal delay-2&quot;&gt;Use this space to capture one takeaway about screening, staging, or early detection. Then export your reflection as a PDF.&lt;/p&gt;&lt;textarea id=&quot;reflectionText&quot; class=&quot;reflection-box reveal delay-3&quot; placeholder=&quot;Type your reflection here...&quot;&gt;&lt;/textarea&gt;&lt;button class=&quot;start-button reveal delay-4&quot; type=&quot;button&quot; onclick=&quot;exportReflectionPDF()&quot;&gt;Export Reflection PDF&lt;/button&gt;&lt;button class=&quot;start-button reveal delay-4 home-after-reflection&quot; onclick=&quot;parent.courseNav &amp;&amp; parent.courseNav(&#x27;intro-bottom&#x27;); return false;&quot;&gt;Go to the Homepage&lt;/button&gt;&lt;div id=&quot;pdfStatus&quot; class=&quot;pdf-status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(function(){
+  const root=document.getElementById(&#x27;alex-prequel&#x27;);
+  const scenes=Array.from(root.querySelectorAll(&#x27;.scene&#x27;));
+  const progress=document.getElementById(&#x27;introProgress&#x27;);
+  const hudProgress=document.getElementById(&#x27;hudProgress&#x27;);
+  const hudBadges=document.getElementById(&#x27;hudBadges&#x27;);
+  const badgeToast=document.getElementById(&#x27;badgeToast&#x27;);
+  const badgeText=document.getElementById(&#x27;badgeText&#x27;);
+  const badgeSummary=document.getElementById(&#x27;badgeSummary&#x27;);
+
+  const earnedBadges=new Set();
+
+  const badgeCatalog=[
+    {
+      id:&#x27;screening&#x27;,
+      title:&#x27;Screening Insight&#x27;,
+      toast:&#x27;Screening insight earned.&#x27;,
+      explanation:&#x27;You recognized that family history matters, presymptomatic stages are common, and screening can identify T1D risk before clinical onset.&#x27;
+    },
+    {
+      id:&#x27;stage1&#x27;,
+      title:&#x27;Stage 1 Staging&#x27;,
+      toast:&#x27;Stage 1 insight earned.&#x27;,
+      explanation:&#x27;You correctly identified Stage 1 T1D as at least two autoantibodies with normoglycemia and no symptoms.&#x27;
+    },
+    {
+      id:&#x27;stage2&#x27;,
+      title:&#x27;Stage 2 Staging&#x27;,
+      toast:&#x27;Stage 2 insight earned.&#x27;,
+      explanation:&#x27;You recognized Stage 2 T1D as autoantibody positivity with dysglycemia, usually before symptoms appear.&#x27;
+    },
+    {
+      id:&#x27;referral&#x27;,
+      title:&#x27;Referral Readiness&#x27;,
+      toast:&#x27;Referral insight earned.&#x27;,
+      explanation:&#x27;You selected the primary care actions that support education, specialty referral, staging confirmation, and follow-up.&#x27;
+    },
+    {
+      id:&#x27;communication&#x27;,
+      title:&#x27;Clear Communication&#x27;,
+      toast:&#x27;Communication insight earned.&#x27;,
+      explanation:&#x27;You chose language that gives Alex and his family clarity without alarm and supports shared decision-making.&#x27;
+    }
+  ];
+
+  const observer=new IntersectionObserver((entries)=&gt;{
+    entries.forEach(entry=&gt;{
+      if(entry.isIntersecting){
+        entry.target.classList.add(&#x27;in-view&#x27;);
+        renderBadgeSummary();
+      }
+    });
+  },{threshold:.32});
+  scenes.forEach(scene=&gt;observer.observe(scene));
+
+  function updateProgress(){
+    const rect=root.getBoundingClientRect();
+    const scrollable=root.offsetHeight-window.innerHeight;
+    const scrolled=Math.min(Math.max(-rect.top,0),scrollable);
+    const pct=scrollable&gt;0?(scrolled/scrollable)*100:0;
+    progress.style.width=pct+&#x27;%&#x27;;
+    if(hudProgress) hudProgress.style.width=pct+&#x27;%&#x27;;
+  }
+
+  function renderBadgeSummary(){
+    if(!badgeSummary) return;
+    badgeSummary.innerHTML=badgeCatalog.map(badge=&gt;{
+      const earned=earnedBadges.has(badge.id);
+      return `&lt;div class=&quot;badge-earned-card ${earned?&#x27;&#x27;:&#x27;locked&#x27;}&quot;&gt;
+        &lt;div class=&quot;badge-earned-icon&quot;&gt;${earned?&#x27;🏆&#x27;:&#x27;🔒&#x27;}&lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;${badge.title}&lt;/h3&gt;
+          &lt;p&gt;${badge.explanation}&lt;/p&gt;
+          &lt;span class=&quot;badge-earned-status&quot;&gt;${earned?&#x27;Earned&#x27;:&#x27;Not earned yet&#x27;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;`;
+    }).join(&#x27;&#x27;);
+  }
+
+  function unlockBadge(index){
+    const badge=badgeCatalog[index] || badgeCatalog[0];
+    if(earnedBadges.has(badge.id)) return;
+    earnedBadges.add(badge.id);
+    if(hudBadges) hudBadges.textContent=earnedBadges.size;
+    if(badgeText) badgeText.textContent=badge.toast;
+    if(badgeToast){
+      badgeToast.classList.remove(&#x27;show&#x27;);
+      void badgeToast.offsetWidth;
+      badgeToast.classList.add(&#x27;show&#x27;);
+    }
+    renderBadgeSummary();
+  }
+
+  window.addEventListener(&#x27;scroll&#x27;,updateProgress,{passive:true});
+  window.addEventListener(&#x27;resize&#x27;,updateProgress);
+  updateProgress();
+  renderBadgeSummary();
+
+  document.querySelectorAll(&#x27;.quiz&#x27;).forEach((quiz,index)=&gt;{
+    const choices=[...quiz.querySelectorAll(&#x27;.choice&#x27;)];
+    const feedback=quiz.querySelector(&#x27;.feedback&#x27;);
+    const submit=quiz.querySelector(&#x27;.submit-quiz&#x27;);
+
+    function allCorrectMulti(){
+      const correct=choices.filter(c=&gt;c.dataset.correct===&#x27;true&#x27;);
+      const selected=choices.filter(c=&gt;c.classList.contains(&#x27;selected&#x27;));
+      return correct.every(c=&gt;c.classList.contains(&#x27;selected&#x27;)) &amp;&amp; selected.every(c=&gt;c.dataset.correct===&#x27;true&#x27;);
+    }
+
+    function revealFeedback(isCorrect=false){
+      if(quiz.dataset.answered===&#x27;true&#x27;)return;
+      quiz.dataset.answered=&#x27;true&#x27;;
+      choices.forEach(c=&gt;{
+        c.disabled=true;
+        if(c.dataset.correct===&#x27;true&#x27;)c.classList.add(&#x27;correct&#x27;);
+        if(c.classList.contains(&#x27;selected&#x27;)&amp;&amp;c.dataset.correct===&#x27;false&#x27;)c.classList.add(&#x27;wrong&#x27;);
+      });
+      if(feedback) feedback.classList.add(&#x27;show&#x27;);
+      if(submit) submit.disabled=true;
+      if(isCorrect) unlockBadge(index);
+    }
+
+    choices.forEach(choice=&gt;choice.addEventListener(&#x27;click&#x27;,()=&gt;{
+      if(quiz.dataset.answered===&#x27;true&#x27;)return;
+      const isMulti=choice.classList.contains(&#x27;multi&#x27;);
+      if(isMulti){
+        choice.classList.toggle(&#x27;selected&#x27;);
+        choice.style.boxShadow=choice.classList.contains(&#x27;selected&#x27;)?&#x27;0 0 0 3px rgba(246,195,67,.20)&#x27;:&#x27;none&#x27;;
+        return;
+      }
+      choices.forEach(c=&gt;c.classList.remove(&#x27;selected&#x27;));
+      choice.classList.add(&#x27;selected&#x27;);
+      const isCorrect=choice.dataset.correct===&#x27;true&#x27;;
+      revealFeedback(isCorrect);
+      if(!isCorrect) choice.classList.add(&#x27;wrong&#x27;);
+    }));
+
+    if(submit){
+      submit.addEventListener(&#x27;click&#x27;,()=&gt;{
+        const selected=choices.filter(c=&gt;c.classList.contains(&#x27;selected&#x27;));
+        if(!selected.length){
+          if(feedback){
+            feedback.innerHTML=&#x27;Please select at least one option before submitting.&#x27;;
+            feedback.classList.add(&#x27;show&#x27;);
+          }
+          return;
+        }
+        revealFeedback(allCorrectMulti());
+      });
+    }
+  });
+})();
+
+function downloadPDF(filename, title, lines){
+  const escapePdf=(text)=&gt;String(text).replace(/\\/g,&#x27;\\\\&#x27;).replace(/\(/g,&#x27;\\(&#x27;).replace(/\)/g,&#x27;\\)&#x27;);
+  const wrap=(text, max=82)=&gt;{
+    const words=String(text).split(/\s+/);
+    const out=[];
+    let line=&#x27;&#x27;;
+    words.forEach(word=&gt;{
+      if((line+&#x27; &#x27;+word).trim().length&gt;max){
+        out.push(line.trim());
+        line=word;
+      }else{
+        line=(line+&#x27; &#x27;+word).trim();
+      }
+    });
+    if(line) out.push(line);
+    return out;
+  };
+
+  let y=750;
+  const content=[];
+  content.push(&#x27;BT /F1 22 Tf 72 &#x27;+y+&#x27; Td (&#x27;+escapePdf(title)+&#x27;) Tj ET&#x27;);
+  y-=36;
+  content.push(&#x27;BT /F1 11 Tf 72 &#x27;+y+&#x27; Td (Exported on &#x27;+escapePdf(new Date().toLocaleDateString())+&#x27;) Tj ET&#x27;);
+  y-=38;
+
+  lines.forEach(block=&gt;{
+    if(block.heading){
+      content.push(&#x27;BT /F1 15 Tf 72 &#x27;+y+&#x27; Td (&#x27;+escapePdf(block.heading)+&#x27;) Tj ET&#x27;);
+      y-=24;
+    }
+    wrap(block.text || &#x27;&#x27;, 88).forEach(line=&gt;{
+      if(y&lt;72){
+        // Keep single-page export simple by continuing smaller if needed
+        y=72;
+      }
+      content.push(&#x27;BT /F1 11 Tf 72 &#x27;+y+&#x27; Td (&#x27;+escapePdf(line)+&#x27;) Tj ET&#x27;);
+      y-=17;
+    });
+    y-=16;
+  });
+
+  const stream=content.join(&#x27;\n&#x27;);
+  const objects=[
+    &#x27;1 0 obj &lt;&lt; /Type /Catalog /Pages 2 0 R &gt;&gt; endobj&#x27;,
+    &#x27;2 0 obj &lt;&lt; /Type /Pages /Kids [3 0 R] /Count 1 &gt;&gt; endobj&#x27;,
+    &#x27;3 0 obj &lt;&lt; /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources &lt;&lt; /Font &lt;&lt; /F1 4 0 R &gt;&gt; &gt;&gt; /Contents 5 0 R &gt;&gt; endobj&#x27;,
+    &#x27;4 0 obj &lt;&lt; /Type /Font /Subtype /Type1 /BaseFont /Helvetica &gt;&gt; endobj&#x27;,
+    &#x27;5 0 obj &lt;&lt; /Length &#x27;+stream.length+&#x27; &gt;&gt; stream\n&#x27;+stream+&#x27;\nendstream endobj&#x27;
+  ];
+
+  let pdf=&#x27;%PDF-1.4\n&#x27;;
+  const offsets=[0];
+  objects.forEach(obj=&gt;{
+    offsets.push(pdf.length);
+    pdf+=obj+&#x27;\n&#x27;;
+  });
+  const xref=pdf.length;
+  pdf+=&#x27;xref\n0 &#x27;+(objects.length+1)+&#x27;\n&#x27;;
+  pdf+=&#x27;0000000000 65535 f \n&#x27;;
+  offsets.slice(1).forEach(offset=&gt;{
+    pdf+=String(offset).padStart(10,&#x27;0&#x27;)+&#x27; 00000 n \n&#x27;;
+  });
+  pdf+=&#x27;trailer &lt;&lt; /Size &#x27;+(objects.length+1)+&#x27; /Root 1 0 R &gt;&gt;\nstartxref\n&#x27;+xref+&#x27;\n%%EOF&#x27;;
+
+  const blob=new Blob([pdf],{type:&#x27;application/pdf&#x27;});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement(&#x27;a&#x27;);
+  a.href=url;
+  a.download=filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function exportReflectionPDF(){
+  const text=(document.getElementById(&#x27;reflectionText&#x27;)?.value || &#x27;&#x27;).trim() || &#x27;No reflection entered yet.&#x27;;
+  const status=document.getElementById(&#x27;pdfStatus&#x27;);
+
+  const badgeCards=[...document.querySelectorAll(&#x27;.badge-earned-card&#x27;)].map(card=&gt;{
+    const title=card.querySelector(&#x27;h3&#x27;)?.textContent || &#x27;&#x27;;
+    const status=card.querySelector(&#x27;.badge-earned-status&#x27;)?.textContent || &#x27;&#x27;;
+    const explanation=card.querySelector(&#x27;p&#x27;)?.textContent || &#x27;&#x27;;
+    return `${title} (${status}): ${explanation}`;
+  }).join(&#x27;\n&#x27;);
+
+  downloadPDF(&#x27;alex-reflection.pdf&#x27;,&#x27;Alex: The Invisible Beginning&#x27;,[
+    {heading:&#x27;Reflection Prompt&#x27;, text:&#x27;What will you remember about Alex’s story?&#x27;},
+    {heading:&#x27;Your Reflection&#x27;, text:text},
+    {heading:&#x27;Badges Earned in the Course&#x27;, text:badgeCards}
+  ]);
+
+  if(status) status.textContent=&#x27;Your PDF has been downloaded.&#x27;;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+
+<script>
+(function(){
+  const frames = {
+    intro: document.getElementById('introFrame'),
+    maya: document.getElementById('mayaFrame'),
+    alex: document.getElementById('alexFrame')
+  };
+
+  function setActive(name) {
+    for (const key in frames) frames[key].classList.remove('active');
+    frames[name].classList.add('active');
+  }
+
+  function scrollToTop(frame) {
+    try {
+      frame.contentWindow.scrollTo(0, 0);
+    } catch(e) {}
+  }
+
+  function scrollIntroToChoices() {
+    setActive('intro');
+    const frame = frames.intro;
+    setTimeout(function(){
+      try {
+        const doc = frame.contentWindow.document;
+        const target = doc.getElementById('choose-story-section');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          const headings = Array.from(doc.querySelectorAll('h1,h2,h3'));
+          const chooseHeading = headings.find(h => (h.textContent || '').includes('Choose a story to begin'));
+          if (chooseHeading) chooseHeading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          else frame.contentWindow.scrollTo(0, doc.documentElement.scrollHeight);
+        }
+      } catch(e) {}
+    }, 250);
+  }
+
+  window.courseNav = function(target) {
+    if (target === 'maya') {
+      setActive('maya');
+      setTimeout(() => scrollToTop(frames.maya), 100);
+      return;
+    }
+    if (target === 'alex') {
+      setActive('alex');
+      setTimeout(() => scrollToTop(frames.alex), 100);
+      return;
+    }
+    if (target === 'intro-bottom' || target === 'intro') {
+      scrollIntroToChoices();
+      return;
+    }
+  };
+
+  window.addEventListener('message', function(event) {
+    const nav = event.data && event.data.courseNav;
+    if (nav) window.courseNav(nav);
+  });
+})();
+</script>
+</body>
+</html>
